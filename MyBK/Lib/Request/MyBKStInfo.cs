@@ -103,6 +103,7 @@ namespace MyBK.Lib.Request {
         }
    
         public String getTienDoHocTap() {
+
             String str = str = POST.sendPOST("http://www.aao.hcmut.edu.vn/stinfo/ctdt/ajax_ctdt", _token, cookieSession);
             return str; // JSON
         }
@@ -111,6 +112,5 @@ namespace MyBK.Lib.Request {
             String str = str = POST.sendPOST("http://www.aao.hcmut.edu.vn/stinfo/ketqua_tuyensinh", _token, cookieSession);
             return str; // HTML/XML
         }
-
     }
 }
