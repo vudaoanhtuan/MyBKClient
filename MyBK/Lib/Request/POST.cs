@@ -39,8 +39,6 @@ namespace MyBK.Lib.Request {
 
             HttpWebResponse wr = (HttpWebResponse)response;
             CookieCollection cc = wr.Cookies;
-            foreach (var ck in cc)
-                Console.WriteLine(ck);
 
             cookie = new CookieContainer();
             cookie.Add(cc);
@@ -51,8 +49,8 @@ namespace MyBK.Lib.Request {
             request.KeepAlive = true;
             response = (HttpWebResponse)request.GetResponse();
 
-            Console.Write(response.Headers);
-
+            //Console.Write(response.Headers);
+            Console.WriteLine("Log in successfully!");
 
 
             Stream dataStream = response.GetResponseStream();
@@ -94,5 +92,26 @@ namespace MyBK.Lib.Request {
             return responseFromServer;
 
         }
+
+        public static HttpWebResponse getResPonse(String url, String data, CookieContainer allCookie) {
+            CookieContainer cookie = allCookie;
+            //cookie.Add(new Uri(url), JSESSIONID);
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.CookieContainer = cookie;
+            request.KeepAlive = true;
+            request.Method = "POST";
+
+            request.ContentType = "application/x-www-form-urlencoded";
+            byte[] byteArray = Encoding.UTF8.GetBytes(data);
+            request.ContentLength = byteArray.Length;
+            Stream ds = request.GetRequestStream();
+            ds.Write(byteArray, 0, byteArray.Length);
+            ds.Close();
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            return response;            
+        }
+    
     }
 }

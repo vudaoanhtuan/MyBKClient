@@ -8,12 +8,13 @@ using HtmlAgilityPack;
 using System.Collections.Generic;
 using MyBK.Lib.Data.MonHoc;
 using MyBK.Lib.Parser;
+using MyBK.Lib.Request;
 
 
 namespace FileDemo {
     class Program {
         static void Main(string[] args) {
-            Parser.test();
+            MyBKStInfo.test();
         }
     }
 
