@@ -26,6 +26,34 @@ namespace MyBK.Lib.Request {
             return html;
         }
 
+        public static string sentGET(String url, CookieContainer allCookie) {
+            CookieContainer cookie = allCookie;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.CookieContainer = cookie;
+            request.KeepAlive = true;
+            request.ContentType = "application/x-www-form-urlencoded";
+            WebResponse response = request.GetResponse();
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            string responseFromServer = reader.ReadToEnd();
+            reader.Close();
+            dataStream.Close();
+            response.Close();
+            return responseFromServer;
+        }
+
+        public static HttpWebResponse getResponse(String url, CookieContainer allCookie) {
+            CookieContainer cookie = allCookie;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.CookieContainer = cookie;
+            request.KeepAlive = true;
+            request.ContentType = "application/x-www-form-urlencoded";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            return response;
+
+        }
+
+
         public static StreamReader sentGET_Stream(string url) {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             //request.AutomaticDecompression = DecompressionMethods.GZip;

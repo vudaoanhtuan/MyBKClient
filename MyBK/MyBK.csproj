@@ -57,6 +57,7 @@
     <Compile Include="Lib\Request\Function.cs" />
     <Compile Include="Lib\Request\GET.cs" />
     <Compile Include="Lib\Request\MyBKDKMH.cs" />
+    <Compile Include="Lib\Request\MyBKStInfo.cs" />
     <Compile Include="Lib\Request\POST.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
