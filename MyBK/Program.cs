@@ -14,7 +14,7 @@ using MyBK.Lib.Request;
 namespace FileDemo {
     class Program {
         static void Main(string[] args) {
-            MyBKStInfo.test();
+          
         }
     }
 
