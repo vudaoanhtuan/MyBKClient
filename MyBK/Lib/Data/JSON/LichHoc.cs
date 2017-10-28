@@ -38,16 +38,47 @@ namespace MyBK.Lib.Data.JSON {
         public string ngay_cap_nhat { get; set; }
         public string trang_thai { get; set; }
 
-        public static LichHoc[] getLichThi(String json) {
-            JObject jo = JObject.Parse(json);
+        public static String formatJson(String json) {
+            if (json.IndexOf('[') >= 0)
+                return json;
+            int start = json.IndexOf('{');
+            int end = json.LastIndexOf('}');
+            String sub = json.Substring(start + 1, end - start -1);
+            return "[" + sub + "]";
+        }
+
+        public static JToken formatJson(JToken jt) {
+            String str = formatJson(jt.ToString());
+            JToken j = JToken.Parse(str);
+            return j;
+            
+        }
+        public static LichHoc[] getLichHoc(String json) {
             List<LichHoc> ds = new List<LichHoc>();
-            if (jo == null)
-                return null;
+            JObject jo = JObject.Parse(json);
+
             foreach (var pair in jo) {
-                String id = pair.Key;
-                JToken token = pair.Value;
-                LichHoc lt = token.ToObject<LichHoc>();
-                ds.Add(lt);
+                String key = pair.Key;
+                JToken jt = pair.Value;
+                JToken lichhoc = jt["lichhoc"];
+                List<MonHoc> dsmonhoc = new List<MonHoc>();
+                if (lichhoc.ToString().IndexOf('[') >=0)
+                     dsmonhoc = lichhoc.ToObject<List<MonHoc>>();
+                else {
+                    foreach (var jtokenmonhoc in lichhoc) {
+                        MonHoc mh = jtokenmonhoc.First.ToObject<MonHoc>();
+                        dsmonhoc.Add(mh);
+                    }
+                }
+
+                LichHoc lh = new LichHoc();
+                lh.ten_hocky = jt["ten_hocky"].ToString();
+                lh.ds_mon_hoc = dsmonhoc;
+                lh.hk_nh = jt["hk_nh"].ToString();
+                lh.ngay_cap_nhat = jt["ngay_cap_nhat"].ToString();
+                lh.trang_thai = jt["trang_thai"].ToString();
+                ds.Add(lh);
+ 
             }
             return ds.ToArray();
         }

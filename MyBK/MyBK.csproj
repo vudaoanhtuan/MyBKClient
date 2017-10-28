@@ -43,6 +43,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +53,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gui\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\DiemItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\DiemItem.Designer.cs">
+      <DependentUpon>DiemItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\Flat_Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\Flat_Item.Designer.cs">
+      <DependentUpon>Flat_Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\LichHocItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\LichHocItem.Designer.cs">
+      <DependentUpon>LichHocItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\LichThiItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\LichThiItem.Designer.cs">
+      <DependentUpon>LichThiItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\XemDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\XemDiem.Designer.cs">
+      <DependentUpon>XemDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\XemLichHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\XemLichHoc.Designer.cs">
+      <DependentUpon>XemLichHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\XemLichThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\XemLichThi.Designer.cs">
+      <DependentUpon>XemLichThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\XemThoiKhoaBieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\XemThoiKhoaBieu.Designer.cs">
+      <DependentUpon>XemThoiKhoaBieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lib\Data\DangKy\DotDangKy.cs" />
     <Compile Include="Lib\Data\DangKy\LoaiDangKy.cs" />
     <Compile Include="Lib\Data\DangKy\LichDangKy.cs" />
@@ -60,6 +116,7 @@
     <Compile Include="Lib\Data\MonHoc\BuoiHoc.cs" />
     <Compile Include="Lib\Data\MonHoc\LopHoc.cs" />
     <Compile Include="Lib\Data\MonHoc\MonHoc.cs" />
+    <Compile Include="Lib\Data\PathData.cs" />
     <Compile Include="Lib\Parser\Parser.cs" />
     <Compile Include="Lib\Request\Function.cs" />
     <Compile Include="Lib\Request\GET.cs" />
@@ -68,10 +125,69 @@
     <Compile Include="Lib\Request\POST.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gui\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\MyUserControl\DiemItem.resx">
+      <DependentUpon>DiemItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\MyUserControl\Flat_Item.resx">
+      <DependentUpon>Flat_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\MyUserControl\LichHocItem.resx">
+      <DependentUpon>LichHocItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\MyUserControl\LichThiItem.resx">
+      <DependentUpon>LichThiItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\XemDiem.resx">
+      <DependentUpon>XemDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\XemLichHoc.resx">
+      <DependentUpon>XemLichHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\XemLichThi.resx">
+      <DependentUpon>XemLichThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\XemThoiKhoaBieu.resx">
+      <DependentUpon>XemThoiKhoaBieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BangDiem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LichThi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TKB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThongTinCaNhan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BKLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

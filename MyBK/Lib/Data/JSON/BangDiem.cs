@@ -49,15 +49,40 @@ namespace MyBK.Lib.Data.JSON {
         public string trang_thai { get; set; }
 
         public static BangDiem[] getBangDiem(String json) {
-            JObject jo = JObject.Parse(json);
             List<BangDiem> ds = new List<BangDiem>();
-            if (jo == null)
-                return null;
+            JObject jo = JObject.Parse(json);
+
             foreach (var pair in jo) {
-                String id = pair.Key;
-                JToken token = pair.Value;
-                BangDiem lt = token.ToObject<BangDiem>();
-                ds.Add(lt);
+                String key = pair.Key;
+                JToken jt = pair.Value;
+                JToken diem = jt["diem"];
+                List<DiemMonHoc> dsdiemmonhoc = new List<DiemMonHoc>();
+                if (diem.ToString().IndexOf('[') >= 0)
+                    dsdiemmonhoc = diem.ToObject<List<DiemMonHoc>>();
+                else {
+                    foreach (var jtokenmonhoc in diem) {
+                        DiemMonHoc dmh = jtokenmonhoc.First.ToObject<DiemMonHoc>();
+                        dsdiemmonhoc.Add(dmh);
+                    }
+                }
+
+                BangDiem bd = new BangDiem();
+                bd.ten_hocky = jt["ten_hocky"].ToString();
+                bd.bang_diem = dsdiemmonhoc;
+                bd.hk_nh = jt["hk_nh"].ToString();
+                bd.ngay_cap_nhat = jt["ngay_cap_nhat"].ToString();
+                bd.trang_thai = jt["trang_thai"].ToString();
+                bd.diem_tb = jt["diem_tb"].ToString();
+                bd.so_tc = jt["so_tc"].ToString();
+                bd.so_tctl = jt["so_tctl"].ToString();
+                bd.so_tctl_hk = jt["so_tctl_hk"].ToString();
+                bd.diem_tbtl = jt["diem_tbtl"].ToString();
+                bd.ngay_th = jt["ngay_th"].ToString();
+
+
+
+                ds.Add(bd);
+
             }
             return ds.ToArray();
         }

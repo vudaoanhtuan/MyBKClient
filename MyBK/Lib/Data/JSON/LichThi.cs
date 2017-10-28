@@ -40,15 +40,31 @@ namespace MyBK.Lib.Data.JSON {
         public string trang_thai { get; set; }
 
         public static LichThi[] getLichThi(String json) {
-            JObject jo = JObject.Parse(json);
             List<LichThi> ds = new List<LichThi>();
-            if (jo == null)
-                return null;
+            JObject jo = JObject.Parse(json);
+
             foreach (var pair in jo) {
-                String id = pair.Key;
-                JToken token = pair.Value;
-                LichThi lt = token.ToObject<LichThi>();
-                ds.Add(lt);
+                String key = pair.Key;
+                JToken jt = pair.Value;
+                JToken lichthi = jt["lichthi"];
+                List<MonThi> dsmonthi = new List<MonThi>();
+                if (lichthi.ToString().IndexOf('[') >= 0)
+                    dsmonthi = lichthi.ToObject<List<MonThi>>();
+                else {
+                    foreach (var jtokenmonhoc in lichthi) {
+                        MonThi mt = jtokenmonhoc.First.ToObject<MonThi>();
+                        dsmonthi.Add(mt);
+                    }
+                }
+
+                LichThi lh = new LichThi();
+                lh.ten_hocky = jt["ten_hocky"].ToString();
+                lh.ds_mon_thi = dsmonthi;
+                lh.hk_nh = jt["hk_nh"].ToString();
+                lh.ngay_cap_nhat = jt["ngay_cap_nhat"].ToString();
+                lh.trang_thai = jt["trang_thai"].ToString();
+                ds.Add(lh);
+
             }
             return ds.ToArray();
         }
