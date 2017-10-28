@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.body = new System.Windows.Forms.TableLayoutPanel();
+            this.tablePanel_all = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayout_Body = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayout_thoi_khoa_bieu = new System.Windows.Forms.FlowLayoutPanel();
             this.button_thoi_khoa_bieu = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button_logout = new System.Windows.Forms.Button();
             this.label_myBK = new System.Windows.Forms.Label();
-            this.body.SuspendLayout();
+            this.tablePanel_all.SuspendLayout();
             this.flowLayout_Body.SuspendLayout();
             this.flowLayout_thoi_khoa_bieu.SuspendLayout();
             this.flowLayout_lich_thi.SuspendLayout();
@@ -67,22 +67,22 @@
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // body
+            // tablePanel_all
             // 
-            this.body.ColumnCount = 1;
-            this.body.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.body.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.body.Controls.Add(this.flowLayout_Body, 0, 1);
-            this.body.Controls.Add(this.header, 0, 0);
-            this.body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.body.Location = new System.Drawing.Point(0, 0);
-            this.body.Name = "body";
-            this.body.RowCount = 2;
-            this.body.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.56051F));
-            this.body.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.43949F));
-            this.body.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.body.Size = new System.Drawing.Size(802, 618);
-            this.body.TabIndex = 0;
+            this.tablePanel_all.ColumnCount = 1;
+            this.tablePanel_all.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePanel_all.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePanel_all.Controls.Add(this.flowLayout_Body, 0, 1);
+            this.tablePanel_all.Controls.Add(this.header, 0, 0);
+            this.tablePanel_all.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablePanel_all.Location = new System.Drawing.Point(0, 0);
+            this.tablePanel_all.Name = "tablePanel_all";
+            this.tablePanel_all.RowCount = 2;
+            this.tablePanel_all.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.56051F));
+            this.tablePanel_all.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.43949F));
+            this.tablePanel_all.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tablePanel_all.Size = new System.Drawing.Size(802, 618);
+            this.tablePanel_all.TabIndex = 0;
             // 
             // flowLayout_Body
             // 
@@ -118,6 +118,7 @@
             this.button_thoi_khoa_bieu.Size = new System.Drawing.Size(256, 186);
             this.button_thoi_khoa_bieu.TabIndex = 2;
             this.button_thoi_khoa_bieu.UseVisualStyleBackColor = true;
+            this.button_thoi_khoa_bieu.Click += new System.EventHandler(this.button_thoi_khoa_bieu_Click);
             // 
             // label1
             // 
@@ -150,6 +151,7 @@
             this.button_lich_thi.Size = new System.Drawing.Size(256, 186);
             this.button_lich_thi.TabIndex = 3;
             this.button_lich_thi.UseVisualStyleBackColor = true;
+            this.button_lich_thi.Click += new System.EventHandler(this.button_lich_thi_Click);
             // 
             // label2
             // 
@@ -182,6 +184,7 @@
             this.button_bang_diem.Size = new System.Drawing.Size(256, 186);
             this.button_bang_diem.TabIndex = 3;
             this.button_bang_diem.UseVisualStyleBackColor = true;
+            this.button_bang_diem.Click += new System.EventHandler(this.button_bang_diem_Click);
             // 
             // label3
             // 
@@ -214,6 +217,7 @@
             this.button_tt_ca_nhan.Size = new System.Drawing.Size(256, 186);
             this.button_tt_ca_nhan.TabIndex = 3;
             this.button_tt_ca_nhan.UseVisualStyleBackColor = true;
+            this.button_tt_ca_nhan.Click += new System.EventHandler(this.button_tt_ca_nhan_Click);
             // 
             // label4
             // 
@@ -359,6 +363,7 @@
             this.button_exit.Size = new System.Drawing.Size(48, 45);
             this.button_exit.TabIndex = 0;
             this.button_exit.UseVisualStyleBackColor = true;
+            this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
             // 
             // panel3
             // 
@@ -400,10 +405,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 618);
-            this.Controls.Add(this.body);
+            this.Controls.Add(this.tablePanel_all);
             this.Name = "MainWindow";
             this.Text = "Test";
-            this.body.ResumeLayout(false);
+            this.tablePanel_all.ResumeLayout(false);
             this.flowLayout_Body.ResumeLayout(false);
             this.flowLayout_thoi_khoa_bieu.ResumeLayout(false);
             this.flowLayout_lich_thi.ResumeLayout(false);
@@ -422,8 +427,17 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel body;
+        private System.Windows.Forms.TableLayoutPanel tablePanel_all;
         private System.Windows.Forms.FlowLayoutPanel flowLayout_Body;
+        private System.Windows.Forms.TableLayoutPanel header;
+        private System.Windows.Forms.Panel panelLogoBK;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label_myBK;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button_exit;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button_logout;
         private System.Windows.Forms.FlowLayoutPanel flowLayout_thoi_khoa_bieu;
         private System.Windows.Forms.Button button_thoi_khoa_bieu;
         private System.Windows.Forms.Label label1;
@@ -442,14 +456,5 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayout_mybk_dkmh;
         private System.Windows.Forms.Button button_myBK_dkmh;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TableLayoutPanel header;
-        private System.Windows.Forms.Panel panelLogoBK;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label_myBK;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button_exit;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button_logout;
     }
 }

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 using MyBK.Lib.Parser;
 using MyBK.Lib.Request;
-using System.Windows.Forms;
+
 using MyBK.Lib.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
@@ -19,19 +19,23 @@ using MyBK.Gui;
 namespace Program {
     class Program {
         static void Main(string[] args) {
-            //Application.Run(new MyBK.Gui.XemLichHoc());
-            StreamReader sr = new StreamReader(PathData.lichHocData, Encoding.UTF8);
-            StreamWriter sw = new StreamWriter("test.json", false, Encoding.UTF8);
-            String json = sr.ReadToEnd();
-            JObject jo = JObject.Parse(json);
-
-            JToken jt = jo.First.Next;
-            JToken tt = jt.First["lichhoc"];
-            foreach (var pair in tt) {
-                MonHoc mh = pair.First.ToObject<MonHoc>();
-            }
-            sw.Close();
-            Application.Run(new XemDiem());
+            System.Windows.Forms.Application.Run(new MyBK.Gui.MainWindow());
+            //StreamReader sr = new StreamReader("Data/ttcn.html", Encoding.UTF8);
+            //StreamWriter sw = new StreamWriter("test.html", false, Encoding.UTF8);
+            //HtmlDocument doc = new HtmlDocument();
+            //doc.Load(sr);
+            //HtmlNodeCollection list = doc.DocumentNode.SelectNodes("/div/div/div/div/div/div/table/tbody//tr");
+            //Console.Write(list.Count);
+            //for (int i = 0; i < list.Count; i++) {
+            //    HtmlNode th = list[i].SelectSingleNode("./th");
+            //    HtmlNode td = list[i].SelectSingleNode("./td");
+            //    if (th != null)
+            //        sw.Write(th.InnerText.Trim());
+            //    if (td != null)
+            //        sw.Write("|" + td.InnerText.Trim());
+            //    sw.WriteLine();
+            //}
+            //sw.Close();
         }
     }
 

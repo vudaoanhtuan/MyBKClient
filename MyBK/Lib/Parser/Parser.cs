@@ -148,5 +148,23 @@ namespace MyBK.Lib.Parser {
             }
             return ds.ToArray();
         }
+
+        public static String parseTTCN(String html) {
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            String res = "";
+            HtmlNodeCollection list = doc.DocumentNode.SelectNodes("/div/div/div/div/div/div/table/tbody//tr");
+            Console.Write(list.Count);
+            for (int i = 0; i < list.Count; i++) {
+                HtmlNode th = list[i].SelectSingleNode("./th");
+                HtmlNode td = list[i].SelectSingleNode("./td");
+                if (th != null)
+                    res = res + th.InnerText.Trim();
+                if (td != null)
+                    res = res + "|" + td.InnerText.Trim();
+                res = res + '\n';
+            }
+            return res;
+        }
     }
 }

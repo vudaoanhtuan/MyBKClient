@@ -51,7 +51,7 @@ namespace MyBK.Gui {
         }
    
         public void setupDSHocKy() {
-            comboBox_ds_hoc_ki.DisplayMember = "KeyValuePair<string, LichHoc>.Key";
+            comboBox_ds_hoc_ki.DisplayMember = "KeyValuePair<string, LichThi>.Key";
             for (int i = 0; i < listLT.Length; i++) {
                 KeyValuePair<String, LichThi> item =
                 new KeyValuePair<string, LichThi>(listLT[i].ten_hocky, listLT[i]);
