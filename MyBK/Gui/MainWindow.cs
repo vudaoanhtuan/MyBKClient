@@ -11,6 +11,7 @@ using System.IO;
 using MyBK.Lib.Data;
 using MyBK.Gui.MyUserControl;
 using MyBK.Gui;
+using MyBK.Lib.Request;
 
 namespace MyBK.Gui {
     public partial class MainWindow : Form {
@@ -27,27 +28,60 @@ namespace MyBK.Gui {
                 lf.Name = "loginform";
                 lf.Margin = new Padding(50,50,50,0);
                 tablePanel_all.Controls.Add(lf, 0, 1);
-                lf.buttonLoginClicked += changeBody;
+                lf.buttonLoginClicked += LoadDataLoginSuccess;
             }
             
         }
 
-        void changeBody(object sender, EventArgs e) {
+        void LoadDataLoginSuccess(object sender, EventArgs e) {
+            // show panel
             Control ct = tablePanel_all.Controls["loginform"];
             if (ct != null) {
                 tablePanel_all.Controls.Remove(ct);
             }
             flowLayout_Body.Show();
+
+            // load data from mybk
+
+            StreamWriter sw;
+            MyBKStInfo mybk = new MyBKStInfo();
+
+            sw = new StreamWriter(MyBK.Lib.Data.PathData.lichHocData, false, Encoding.UTF8);
+            String response = mybk.getLichHoc();
+            sw.Write(response);
+            sw.Close();
+
+            sw = new StreamWriter(MyBK.Lib.Data.PathData.lichThiData, false, Encoding.UTF8);
+            response = mybk.getLichThi();
+            sw.Write(response);
+            sw.Close();
+
+            sw = new StreamWriter(MyBK.Lib.Data.PathData.bangDiemData, false, Encoding.UTF8);
+            response = mybk.getBangDiem();
+            sw.Write(response);
+            sw.Close();
+
+            //sw = new StreamWriter(MyBK.Lib.Data.PathData.ttcnXML, false, Encoding.UTF8);
+            //response = mybk.getT();
+            //sw.Write(response);
+            //sw.Close();
+
+
         }
+
+
 
         bool checkLogin() {
             StreamReader sr = new StreamReader(MyBK.Lib.Data.PathData.config);
             String login = sr.ReadLine();
-            if (login == null)
+            if (login == null) {
+                sr.Close();
                 return false;
+            }
             if (login.Equals("1")) {
                 user = sr.ReadLine();
                 pass = sr.ReadLine();
+                sr.Close();
                 return true;
             }
             sr.Close();

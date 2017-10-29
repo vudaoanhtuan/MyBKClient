@@ -24,6 +24,7 @@ namespace MyBK.Gui.MyUserControl {
             CookieContainer cc = MyBK.Lib.Request.POST.Login(user, pass);
             if (cc != null) {
                 loginDone = true;
+                
                 StreamWriter sw = new StreamWriter(MyBK.Lib.Data.PathData.config);
                 sw.WriteLine(1);
                 sw.WriteLine(user);
