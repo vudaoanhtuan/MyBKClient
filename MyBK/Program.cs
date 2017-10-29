@@ -19,7 +19,7 @@ using MyBK.Gui;
 namespace Program {
     class Program {
         static void Main(string[] args) {
-            System.Windows.Forms.Application.Run(new MyBK.Gui.MainWindow());
+            //System.Windows.Forms.Application.Run(new MyBK.Gui.MainWindow());
             //StreamReader sr = new StreamReader("Data/ttcn.html", Encoding.UTF8);
             //StreamWriter sw = new StreamWriter("test.html", false, Encoding.UTF8);
             //HtmlDocument doc = new HtmlDocument();
@@ -36,6 +36,7 @@ namespace Program {
             //    sw.WriteLine();
             //}
             //sw.Close();
+            new MyBKStInfo();
         }
     }
 

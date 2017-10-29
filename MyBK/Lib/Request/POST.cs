@@ -35,7 +35,15 @@ namespace MyBK.Lib.Request {
 
             response = (HttpWebResponse)request.GetResponse();
 
-
+            // test login
+            StreamWriter swlg = new StreamWriter("login.html", false, Encoding.UTF8);
+            StreamReader readLogin = new StreamReader(response.GetResponseStream());
+            String strLogin = readLogin.ReadToEnd();
+            // login failed;
+            if (strLogin.IndexOf("success") < 0)
+                return null; 
+            
+            // login successful
 
             HttpWebResponse wr = (HttpWebResponse)response;
             CookieCollection cc = wr.Cookies;

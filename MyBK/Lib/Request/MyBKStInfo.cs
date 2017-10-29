@@ -17,37 +17,40 @@ namespace MyBK.Lib.Request {
             String user = sr.ReadLine();
             String pass = sr.ReadLine();
             CookieContainer cc = POST.Login(user, pass);
-            HttpWebResponse res = GET.getResponse("http://www.aao.hcmut.edu.vn/stinfo/", cc);
+            _token = null;
+            if (cc != null) {
+                HttpWebResponse res = GET.getResponse("http://www.aao.hcmut.edu.vn/stinfo/", cc);
 
-            // Get cookie
-            String strCookie = res.Headers.Get("Set-Cookie");
+                // Get cookie
+                String strCookie = res.Headers.Get("Set-Cookie");
 
-            String uri = "http://aao.hcmut.edu.vn/stinfo/";
-            String[] listCookie = strCookie.Split(',');
-            CookieContainer allCookie = new CookieContainer();
+                String uri = "http://aao.hcmut.edu.vn/stinfo/";
 
-            String[] temp = listCookie[0].Split(';')[0].Split('=');
-            Cookie ck = new Cookie(temp[0], temp[1]);
-            cc.Add(new Uri(uri), ck);
-            temp = listCookie[2].Split(';')[0].Split('=');
-            ck = new Cookie(temp[0], temp[1]);
-            cc.Add(new Uri(uri), ck);
-            cookieSession = cc;
+                String[] listCookie = strCookie.Split(',');
+                CookieContainer allCookie = new CookieContainer();
 
-            // Get _token
-            Stream dataStream = res.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(responseFromServer);
-            HtmlNodeCollection list = doc.DocumentNode.SelectNodes("/html/head//meta");
-            String str_token = list[3].OuterHtml;
-            str_token = str_token.Substring(str_token.IndexOf("content=") + 9, 40);
-            _token = "_token=" + str_token;
-            reader.Close();
-            dataStream.Close();
-            res.Close();
-           
+                String[] temp = listCookie[0].Split(';')[0].Split('=');
+                Cookie ck = new Cookie(temp[0], temp[1]);
+                cc.Add(new Uri(uri), ck);
+                temp = listCookie[2].Split(';')[0].Split('=');
+                ck = new Cookie(temp[0], temp[1]);
+                cc.Add(new Uri(uri), ck);
+                cookieSession = cc;
+
+                // Get _token
+                Stream dataStream = res.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                string responseFromServer = reader.ReadToEnd();
+                HtmlDocument doc = new HtmlDocument();
+                doc.LoadHtml(responseFromServer);
+                HtmlNodeCollection list = doc.DocumentNode.SelectNodes("/html/head//meta");
+                String str_token = list[3].OuterHtml;
+                str_token = str_token.Substring(str_token.IndexOf("content=") + 9, 40);
+                _token = "_token=" + str_token;
+                reader.Close();
+                dataStream.Close();
+                res.Close();
+            }     
         }
 
         public static void test() {
