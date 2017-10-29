@@ -25,6 +25,7 @@ namespace MyBK.Gui {
 
             StreamReader sr = new StreamReader(MyBK.Lib.Data.PathData.bangDiemData, Encoding.UTF8);
             String json = sr.ReadToEnd();
+            sr.Close();
             listBD = BangDiem.getBangDiem(json);
 
             this.setLichHoc(listBD[0]);

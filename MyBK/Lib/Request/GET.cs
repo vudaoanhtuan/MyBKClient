@@ -22,7 +22,7 @@ namespace MyBK.Lib.Request {
             // chuyen thanh String
             StreamReader reader = new StreamReader(stream);
             html = reader.ReadToEnd();
-
+            reader.Close();
             return html;
         }
 
@@ -36,6 +36,7 @@ namespace MyBK.Lib.Request {
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
             string responseFromServer = reader.ReadToEnd();
+            reader.Close();
             reader.Close();
             dataStream.Close();
             response.Close();
@@ -79,6 +80,7 @@ namespace MyBK.Lib.Request {
             Stream stream = response.GetResponseStream();
             StreamReader reader = new StreamReader(stream);
             String html = reader.ReadToEnd();
+            reader.Close();
             getFormData(html, out lt, out execution);
         }
 

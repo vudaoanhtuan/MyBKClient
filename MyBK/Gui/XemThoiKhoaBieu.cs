@@ -20,6 +20,7 @@ namespace MyBK.Gui {
             InitializeComponent();
             StreamReader sr = new StreamReader(MyBK.Lib.Data.PathData.lichHocData, Encoding.UTF8);
             String json = sr.ReadToEnd();
+            sr.Close();
             listLH = LichHoc.getLichHoc(json);
             this.setupDSHocKy();
             this.setLichThi(listLH[0]);

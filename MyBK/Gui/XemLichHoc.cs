@@ -24,6 +24,7 @@ namespace MyBK.Gui {
             
             StreamReader sr = new StreamReader(PathData.lichHocData, Encoding.UTF8);
             String json = sr.ReadToEnd();
+            sr.Close();
             listLH = LichHoc.getLichHoc(json);
            
             this.setLichHoc(listLH[0]);

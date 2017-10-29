@@ -50,6 +50,7 @@ namespace MyBK.Gui {
                 pass = sr.ReadLine();
                 return true;
             }
+            sr.Close();
             return false;
         }
 

@@ -13,10 +13,17 @@ namespace MyBK.Lib.Request {
         String _token;
         public MyBKStInfo() {
             // Log in
-            StreamReader sr = new StreamReader("config.ini");
+            StreamReader sr = new StreamReader(MyBK.Lib.Data.PathData.config);
+            String logined = sr.ReadLine();
+            if (logined == null) {
+                sr.Close();
+                return;
+            }
             String user = sr.ReadLine();
             String pass = sr.ReadLine();
+            sr.Close();
             CookieContainer cc = POST.Login(user, pass);
+            
             _token = null;
             if (cc != null) {
                 HttpWebResponse res = GET.getResponse("http://www.aao.hcmut.edu.vn/stinfo/", cc);
@@ -53,42 +60,7 @@ namespace MyBK.Lib.Request {
             }     
         }
 
-        public static void test() {
-            StreamReader sr = new StreamReader("config.ini");
-            String user = sr.ReadLine();
-            String pass = sr.ReadLine();
-            CookieContainer cc = POST.Login(user, pass);
-            HttpWebResponse res = GET.getResponse("http://www.aao.hcmut.edu.vn/stinfo/", cc);
-            String strCookie = res.Headers.Get("Set-Cookie");
-
-            String uri = "http://aao.hcmut.edu.vn/stinfo/";
-            String[] listCookie = strCookie.Split(',');
-            CookieContainer allCookie = new CookieContainer();
-
-            String[] temp = listCookie[0].Split(';')[0].Split('=');
-            Cookie ck = new Cookie(temp[0], temp[1]);
-            cc.Add(new Uri(uri), ck);
-            temp = listCookie[2].Split(';')[0].Split('=');
-            ck = new Cookie(temp[0], temp[1]);
-            cc.Add(new Uri(uri), ck);
-            
-
-            String str = GET.sentGET("http://www.aao.hcmut.edu.vn/stinfo/", cc);
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(str);
-            HtmlNodeCollection list = doc.DocumentNode.SelectNodes("/html/head//meta");
-            String str_token = list[3].OuterHtml;
-            str_token = str_token.Substring(str_token.IndexOf("content=") + 9, 40);
-
-            Console.WriteLine(str_token);
-
-            StreamWriter sw = new StreamWriter("lichthi.html", false, Encoding.UTF8);
-
-            str = POST.sendPOST("http://www.aao.hcmut.edu.vn/stinfo/lichthi/ajax_lichthi", "_token=" + str_token, cc);
-            sw.Write(str);
-            sw.Close();
-        }
-
+        
         public String getLichThi() {
             String str = str = POST.sendPOST("http://www.aao.hcmut.edu.vn/stinfo/lichthi/ajax_lichthi", _token, cookieSession);
             return str; // JSON

@@ -17,6 +17,7 @@ namespace MyBK.Lib.Parser {
             //doc.Load(sr);
             //HtmlNodeCollection list = doc.DocumentNode.SelectNodes("/div/div/table/*");
             String str = sr.ReadToEnd();
+            sr.Close();
             DotDangKy[] list = XMLParser.getDSDotDangKy(str);
             foreach (var l in list)
                 sw.WriteLine(l);
