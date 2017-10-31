@@ -26,6 +26,24 @@ namespace MyBK.Lib.Request {
             return html;
         }
 
+        //public static string sentGET(string url, CookieContainer allCookie) {
+        //    string html = string.Empty;
+        //    // tao request;
+        //    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        //    request.CookieContainer = allCookie;
+        //    //request.AutomaticDecompression = DecompressionMethods.GZip;
+
+        //    // tao response
+        //    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        //    // doc du lieu tu response
+        //    Stream stream = response.GetResponseStream();
+        //    // chuyen thanh String
+        //    StreamReader reader = new StreamReader(stream);
+        //    html = reader.ReadToEnd();
+        //    reader.Close();
+        //    return html;
+        //}
+
         public static string sentGET(String url, CookieContainer allCookie) {
             CookieContainer cookie = allCookie;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -36,7 +54,6 @@ namespace MyBK.Lib.Request {
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
             string responseFromServer = reader.ReadToEnd();
-            reader.Close();
             reader.Close();
             dataStream.Close();
             response.Close();
@@ -52,6 +69,24 @@ namespace MyBK.Lib.Request {
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             return response;
 
+        }
+
+        public static string sentGETX_MLHttpRequest(String url, CookieContainer allCookie) {
+            CookieContainer cookie = allCookie;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.CookieContainer = cookie;
+            request.KeepAlive = true;
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.Accept = "*/*";
+            request.Headers.Add("X-Requested-With", "XMLHttpRequest");
+            WebResponse response = request.GetResponse();
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            string responseFromServer = reader.ReadToEnd();
+            reader.Close();
+            dataStream.Close();
+            response.Close();
+            return responseFromServer;
         }
 
 

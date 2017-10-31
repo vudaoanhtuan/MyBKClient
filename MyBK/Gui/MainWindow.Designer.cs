@@ -387,6 +387,7 @@
             this.button_logout.Size = new System.Drawing.Size(48, 47);
             this.button_logout.TabIndex = 0;
             this.button_logout.UseVisualStyleBackColor = true;
+            this.button_logout.Click += new System.EventHandler(this.button_logout_Click);
             // 
             // label_myBK
             // 

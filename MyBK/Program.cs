@@ -15,10 +15,32 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using MyBK.Lib.Data.JSON;
 using MyBK.Gui;
+using System.Net;
+using System.Windows.Forms;
+
 
 namespace Program {
     class Program {
         static void Main(string[] args) {
+            Application.Run(new MainWindow());
+        }
+
+        static void test2() {
+            StreamWriter sw = new StreamWriter("info.html", false, Encoding.UTF8);
+            StreamReader sr = new StreamReader("config.ini");
+            String user = sr.ReadLine();
+            String pass = sr.ReadLine();
+            String token;
+            //CookieContainer cc = MyBKStInfo.Login(user, pass, out token);
+            //String s = GET.sentGETX_MLHttpRequest("http://www.aao.hcmut.edu.vn/stinfo/profile", cc);
+            MyBKStInfo mybk = new MyBKStInfo();
+            String s = mybk.getThongTinCaNhan();
+            sw.Write(s);
+            sw.Close(); 
+
+        }
+
+        static void test1() {
             System.Windows.Forms.Application.Run(new MyBK.Gui.MainWindow());
             //StreamReader sr = new StreamReader("Data/ttcn.html", Encoding.UTF8);
             //StreamWriter sw = new StreamWriter("test.html", false, Encoding.UTF8);
@@ -36,8 +58,11 @@ namespace Program {
             //    sw.WriteLine();
             //}
             //sw.Close();
-           // new MyBKStInfo();
+            // new MyBKStInfo();
+
         }
+
+       
     }
 
 }

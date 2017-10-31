@@ -45,9 +45,10 @@ namespace MyBK.Gui {
 
             StreamWriter sw;
             MyBKStInfo mybk = new MyBKStInfo();
+            String response;
 
             sw = new StreamWriter(MyBK.Lib.Data.PathData.lichHocData, false, Encoding.UTF8);
-            String response = mybk.getLichHoc();
+            response = mybk.getLichHoc();
             sw.Write(response);
             sw.Close();
 
@@ -61,10 +62,16 @@ namespace MyBK.Gui {
             sw.Write(response);
             sw.Close();
 
-            //sw = new StreamWriter(MyBK.Lib.Data.PathData.ttcnXML, false, Encoding.UTF8);
-            //response = mybk.getT();
-            //sw.Write(response);
-            //sw.Close();
+            sw = new StreamWriter(MyBK.Lib.Data.PathData.ttcnXML, false, Encoding.UTF8);
+            response = mybk.getThongTinCaNhan();
+            sw.Write(response);
+            sw.Close();
+
+
+            sw = new StreamWriter(MyBK.Lib.Data.PathData.ttcnData, false, Encoding.UTF8);
+            response = MyBK.Lib.Parser.XMLParser.parseTTCN(response);
+            sw.Write(response);
+            sw.Close();
 
 
         }
@@ -114,6 +121,19 @@ namespace MyBK.Gui {
 
         private void button_exit_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void button_logout_Click(object sender, EventArgs e) {
+            StreamWriter sw = new StreamWriter(MyBK.Lib.Data.PathData.config, false);
+            sw.Write(0);
+            sw.Close();
+            flowLayout_Body.Hide();
+            LoginForm lf = new LoginForm();
+            lf.Dock = DockStyle.Top;
+            lf.Name = "loginform";
+            lf.Margin = new Padding(50, 50, 50, 0);
+            tablePanel_all.Controls.Add(lf, 0, 1);
+            lf.buttonLoginClicked += LoadDataLoginSuccess;
         }
     }
 }

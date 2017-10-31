@@ -60,6 +60,45 @@ namespace MyBK.Lib.Request {
             }     
         }
 
+        public static CookieContainer Login(String user, String pass, out String token) {
+            CookieContainer cc = POST.Login(user, pass);
+
+            token = null;
+            if (cc != null) {
+                HttpWebResponse res = GET.getResponse("http://www.aao.hcmut.edu.vn/stinfo/", cc);
+
+                // Get cookie
+                String strCookie = res.Headers.Get("Set-Cookie");
+
+                String uri = "http://aao.hcmut.edu.vn/stinfo/";
+
+                String[] listCookie = strCookie.Split(',');
+                CookieContainer allCookie = new CookieContainer();
+
+                String[] temp = listCookie[0].Split(';')[0].Split('=');
+                Cookie ck = new Cookie(temp[0], temp[1]);
+                cc.Add(new Uri(uri), ck);
+                temp = listCookie[2].Split(';')[0].Split('=');
+                ck = new Cookie(temp[0], temp[1]);
+                cc.Add(new Uri(uri), ck);
+
+
+                // Get _token
+                Stream dataStream = res.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                string responseFromServer = reader.ReadToEnd();
+                HtmlDocument doc = new HtmlDocument();
+                doc.LoadHtml(responseFromServer);
+                HtmlNodeCollection list = doc.DocumentNode.SelectNodes("/html/head//meta");
+                String str_token = list[3].OuterHtml;
+                str_token = str_token.Substring(str_token.IndexOf("content=") + 9, 40);
+                token = "_token=" + str_token;
+                reader.Close();
+                dataStream.Close();
+                res.Close();
+            }
+            return cc;
+        }
         
         public String getLichThi() {
             String str = str = POST.sendPOST("http://www.aao.hcmut.edu.vn/stinfo/lichthi/ajax_lichthi", _token, cookieSession);
@@ -84,7 +123,12 @@ namespace MyBK.Lib.Request {
         }
 
         public String getKetQuaTuyenSinh() {
-            String str = str = POST.sendPOST("http://www.aao.hcmut.edu.vn/stinfo/ketqua_tuyensinh", _token, cookieSession);
+            String str = GET.sentGETX_MLHttpRequest("http://www.aao.hcmut.edu.vn/stinfo/ketqua_tuyensinh", cookieSession);
+            return str; // HTML/XML
+        }
+
+        public String getThongTinCaNhan() {
+            String str = GET.sentGETX_MLHttpRequest("http://www.aao.hcmut.edu.vn/stinfo/profile", cookieSession);        
             return str; // HTML/XML
         }
     }

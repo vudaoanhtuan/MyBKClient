@@ -73,6 +73,67 @@ namespace MyBK.Lib.Request {
             return cookie;
 
         }
+
+        public static CookieContainer Login(String user, String pass, String page) {
+            String lt, exe;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://sso.hcmut.edu.vn/cas/login");
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            GET.getFormData(response, out lt, out exe);
+            Cookie JSESSIONID = GET.getCookieFromResponse(response);
+            string service = "http://aao.hcmut.edu.vn";
+            string data = String.Format("service={4}&username={0}&password={1}&lt={2}&execution={3}&_eventId=submit&submit=Login", user, pass, lt, exe, service);
+
+            CookieContainer cookie = new CookieContainer();
+            cookie.Add(new Uri("https://sso.hcmut.edu.vn/cas/login"), JSESSIONID);
+
+            request = (HttpWebRequest)WebRequest.Create("https://sso.hcmut.edu.vn/cas/login");
+            request.CookieContainer = cookie;
+            request.KeepAlive = true;
+            request.Method = "POST";
+
+            request.ContentType = "application/x-www-form-urlencoded";
+            byte[] byteArray = Encoding.UTF8.GetBytes(data);
+            request.ContentLength = byteArray.Length;
+            Stream ds = request.GetRequestStream();
+            ds.Write(byteArray, 0, byteArray.Length);
+            ds.Close();
+
+            response = (HttpWebResponse)request.GetResponse();
+
+            // test login
+
+            StreamReader readLogin = new StreamReader(response.GetResponseStream());
+            String strLogin = readLogin.ReadToEnd();
+            // login failed;
+            if (strLogin.IndexOf("success") < 0)
+                return null;
+
+            // login successful
+
+            HttpWebResponse wr = (HttpWebResponse)response;
+            CookieCollection cc = wr.Cookies;
+
+            cookie = new CookieContainer();
+            cookie.Add(cc);
+            cookie.Add(new Uri(page), JSESSIONID);
+
+    
+            //Console.Write(response.Headers);
+            Console.WriteLine("Log in successfully!");
+
+
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            string responseFromServer = reader.ReadToEnd();
+            StreamWriter sw = new StreamWriter("Log.html", false, Encoding.UTF8);
+            sw.Write(responseFromServer);
+            sw.Close();
+            reader.Close();
+            dataStream.Close();
+            response.Close();
+            return cookie;
+
+        }
         public static String sendPOST(String url, String data, CookieContainer allCookie) {
             CookieContainer cookie = allCookie;
             //cookie.Add(new Uri(url), JSESSIONID);

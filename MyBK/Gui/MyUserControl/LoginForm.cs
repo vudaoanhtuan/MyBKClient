@@ -30,6 +30,8 @@ namespace MyBK.Gui.MyUserControl {
                 sw.WriteLine(user);
                 sw.WriteLine(pass);
                 sw.Close();
+            } else {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "MyBK");
             }
             
             if (buttonLoginClicked != null && loginDone)
