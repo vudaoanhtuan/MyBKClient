@@ -150,6 +150,44 @@ namespace MyBK.Lib.Parser {
             return ds.ToArray();
         }
 
+
+        public static String repairCharacter(String s) {
+            String res = s;
+            res = res.Replace("&Agrave;", "À");
+            res = res.Replace("&Aacute;", "Á");
+            res = res.Replace("&Acirc;", "Â");
+            res = res.Replace("&Atilde;", "Ã");
+            res = res.Replace("&Egrave;", "È");
+            res = res.Replace("&Eacute;", "É");
+            res = res.Replace("&Ecirc;", "Ê");
+            res = res.Replace("&Igrave;", "Ì");
+            res = res.Replace("&Iacute;", "Í");
+            res = res.Replace("&Ograve;", "Ò");
+            res = res.Replace("&Oacute;", "Ó");
+            res = res.Replace("&Ocirc;", "Ô");
+            res = res.Replace("&Otilde;", "Õ");
+            res = res.Replace("&Ugrave;", "Ù");
+            res = res.Replace("&Uacute;", "Ú");
+            res = res.Replace("&Yacute;", "Ý");
+            res = res.Replace("&agrave;", "à");
+            res = res.Replace("&aacute;", "á");
+            res = res.Replace("&acirc;", "â");
+            res = res.Replace("&atilde;", "ã");
+            res = res.Replace("&egrave;", "è");
+            res = res.Replace("&eacute;", "é");
+            res = res.Replace("&ecirc;", "ê");
+            res = res.Replace("&igrave;", "ì");
+            res = res.Replace("&iacute;", "í");
+            res = res.Replace("&ograve;", "ò");
+            res = res.Replace("&oacute;", "ó");
+            res = res.Replace("&ocirc;", "ô");
+            res = res.Replace("&otilde;", "õ");
+            res = res.Replace("&ugrave;", "ù");
+            res = res.Replace("&uacute;", "ú");
+            res = res.Replace("&yacute;", "ý");
+            return res;
+        }
+
         public static String parseTTCN(String html) {
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(html);
@@ -165,6 +203,24 @@ namespace MyBK.Lib.Parser {
                     res = res + "|" + td.InnerText.Trim();
                 res = res + '\n';
             }
+
+
+            // Edit some fail character
+            res = repairCharacter(res);
+            return res;
+        }
+
+        public static String getImageInHtml(String html) {
+            String res = null;
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            HtmlNodeCollection list = doc.DocumentNode.SelectNodes("/div/div/div/div/div/div/div//a");
+            HtmlNode node = list[0];
+            var s = node.Attributes;
+            res = s[1].Value;
+            int start = res.IndexOf("base64,") + 7;
+            res = res.Substring(start);
+            
             return res;
         }
     }

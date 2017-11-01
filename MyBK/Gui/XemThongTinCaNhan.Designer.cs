@@ -25,10 +25,13 @@
         private void InitializeComponent() {
             this.panel_anh = new System.Windows.Forms.Panel();
             this.panel_info = new System.Windows.Forms.Panel();
+            this.panel_image = new System.Windows.Forms.Panel();
+            this.panel_anh.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_anh
             // 
+            this.panel_anh.Controls.Add(this.panel_image);
             this.panel_anh.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_anh.Location = new System.Drawing.Point(0, 0);
             this.panel_anh.Name = "panel_anh";
@@ -44,6 +47,15 @@
             this.panel_info.Size = new System.Drawing.Size(991, 644);
             this.panel_info.TabIndex = 1;
             // 
+            // panel_image
+            // 
+            this.panel_image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel_image.Location = new System.Drawing.Point(397, 12);
+            this.panel_image.Name = "panel_image";
+            this.panel_image.Size = new System.Drawing.Size(189, 202);
+            this.panel_image.TabIndex = 0;
+            // 
             // XemThongTinCaNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -53,6 +65,7 @@
             this.Controls.Add(this.panel_anh);
             this.Name = "XemThongTinCaNhan";
             this.Text = "XemThongTinCaNhan";
+            this.panel_anh.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -61,5 +74,6 @@
 
         private System.Windows.Forms.Panel panel_anh;
         private System.Windows.Forms.Panel panel_info;
+        private System.Windows.Forms.Panel panel_image;
     }
 }

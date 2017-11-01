@@ -69,8 +69,14 @@ namespace MyBK.Gui {
 
 
             sw = new StreamWriter(MyBK.Lib.Data.PathData.ttcnData, false, Encoding.UTF8);
-            response = MyBK.Lib.Parser.XMLParser.parseTTCN(response);
-            sw.Write(response);
+            String strTTCN = MyBK.Lib.Parser.XMLParser.parseTTCN(response);
+            sw.Write(strTTCN);
+            sw.Close();
+
+            // parse Image
+            sw = new StreamWriter(MyBK.Lib.Data.PathData.imageText, false, Encoding.UTF8);
+            String image = MyBK.Lib.Parser.XMLParser.getImageInHtml(response);
+            sw.Write(image);
             sw.Close();
 
 

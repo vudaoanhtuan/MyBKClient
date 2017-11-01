@@ -22,21 +22,17 @@ using System.Windows.Forms;
 namespace Program {
     class Program {
         static void Main(string[] args) {
-            Application.Run(new MainWindow());
+             Application.Run(new MainWindow());
+            //test2();
         }
 
         static void test2() {
-            StreamWriter sw = new StreamWriter("info.html", false, Encoding.UTF8);
-            StreamReader sr = new StreamReader("config.ini");
-            String user = sr.ReadLine();
-            String pass = sr.ReadLine();
-            String token;
-            //CookieContainer cc = MyBKStInfo.Login(user, pass, out token);
-            //String s = GET.sentGETX_MLHttpRequest("http://www.aao.hcmut.edu.vn/stinfo/profile", cc);
-            MyBKStInfo mybk = new MyBKStInfo();
-            String s = mybk.getThongTinCaNhan();
-            sw.Write(s);
-            sw.Close(); 
+            StreamReader sr = new StreamReader("ttcn.html", Encoding.UTF8);
+            String html = sr.ReadToEnd();
+            String image = MyBK.Lib.Parser.XMLParser.getImageInHtml(html);
+            StreamWriter sw = new StreamWriter("image.txt");
+            sw.Write(image);
+            sw.Close();
 
         }
 

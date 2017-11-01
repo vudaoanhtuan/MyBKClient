@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             this.tableLayout_TTCNitem = new System.Windows.Forms.TableLayoutPanel();
-            this.label_key = new System.Windows.Forms.Label();
             this.label_value = new System.Windows.Forms.Label();
+            this.label_key = new System.Windows.Forms.Label();
             this.tableLayout_TTCNitem.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,27 +44,31 @@
             this.tableLayout_TTCNitem.Size = new System.Drawing.Size(979, 47);
             this.tableLayout_TTCNitem.TabIndex = 0;
             // 
-            // label_key
-            // 
-            this.label_key.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_key.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_key.Location = new System.Drawing.Point(3, 0);
-            this.label_key.Name = "label_key";
-            this.label_key.Size = new System.Drawing.Size(390, 47);
-            this.label_key.TabIndex = 0;
-            this.label_key.Text = "label1";
-            this.label_key.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label_value
             // 
+            this.label_value.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.label_value.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_value.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_value.Location = new System.Drawing.Point(399, 0);
+            this.label_value.Location = new System.Drawing.Point(397, 1);
+            this.label_value.Margin = new System.Windows.Forms.Padding(1);
             this.label_value.Name = "label_value";
-            this.label_value.Size = new System.Drawing.Size(577, 47);
+            this.label_value.Size = new System.Drawing.Size(581, 45);
             this.label_value.TabIndex = 1;
             this.label_value.Text = "label1";
             this.label_value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label_key
+            // 
+            this.label_key.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.label_key.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_key.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_key.Location = new System.Drawing.Point(1, 1);
+            this.label_key.Margin = new System.Windows.Forms.Padding(1);
+            this.label_key.Name = "label_key";
+            this.label_key.Size = new System.Drawing.Size(394, 45);
+            this.label_key.TabIndex = 0;
+            this.label_key.Text = "label1";
+            this.label_key.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TTCNItem
             // 
