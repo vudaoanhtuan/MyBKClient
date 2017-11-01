@@ -141,5 +141,10 @@ namespace MyBK.Gui {
             tablePanel_all.Controls.Add(lf, 0, 1);
             lf.buttonLoginClicked += LoadDataLoginSuccess;
         }
+
+        private void button_tien_do_ht_Click(object sender, EventArgs e) {
+            XemChuongTrinhDaoTao ctdt = new XemChuongTrinhDaoTao();
+            ctdt.Show();
+        }
     }
 }

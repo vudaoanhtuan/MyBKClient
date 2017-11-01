@@ -59,6 +59,12 @@
     <Compile Include="Gui\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\MyUserControl\CTDTItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\CTDTItem.Designer.cs">
+      <DependentUpon>CTDTItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\MyUserControl\DiemItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     <Compile Include="Gui\MyUserControl\TTCNItem.Designer.cs">
       <DependentUpon>TTCNItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\XemChuongTrinhDaoTao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\XemChuongTrinhDaoTao.Designer.cs">
+      <DependentUpon>XemChuongTrinhDaoTao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\XemDiem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +147,7 @@
     <Compile Include="Lib\Data\DangKy\LoaiDangKy.cs" />
     <Compile Include="Lib\Data\DangKy\LichDangKy.cs" />
     <Compile Include="Lib\Data\JSON\BangDiem.cs" />
+    <Compile Include="Lib\Data\JSON\CTDT.cs" />
     <Compile Include="Lib\Data\JSON\LichHoc.cs" />
     <Compile Include="Lib\Data\JSON\LichThi.cs" />
     <Compile Include="Lib\Data\MonHoc\BuoiHoc.cs" />
@@ -163,6 +176,9 @@
     <EmbeddedResource Include="Gui\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\MyUserControl\CTDTItem.resx">
+      <DependentUpon>CTDTItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\MyUserControl\DiemItem.resx">
       <DependentUpon>DiemItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\MyUserControl\TTCNItem.resx">
       <DependentUpon>TTCNItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\XemChuongTrinhDaoTao.resx">
+      <DependentUpon>XemChuongTrinhDaoTao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\XemDiem.resx">
       <DependentUpon>XemDiem.cs</DependentUpon>
@@ -225,7 +244,9 @@
   <ItemGroup>
     <None Include="Resources\Exit.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\tien_do_hoc_tap.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

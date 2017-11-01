@@ -27,13 +27,38 @@ namespace Program {
         }
 
         static void test2() {
-            StreamReader sr = new StreamReader("ttcn.html", Encoding.UTF8);
-            String html = sr.ReadToEnd();
-            String image = MyBK.Lib.Parser.XMLParser.getImageInHtml(html);
-            StreamWriter sw = new StreamWriter("image.txt");
-            sw.Write(image);
-            sw.Close();
+            StreamReader sr = new StreamReader("Data/ctdt.json", Encoding.UTF8);
+            String json = sr.ReadToEnd();
+            StreamWriter sw = new StreamWriter("Log.html", false, Encoding.UTF8);
 
+            List<CTDT> ds = new List<CTDT>();
+            JObject jo = JObject.Parse(json);
+            JToken jk = jo["ctdt"];
+            jo = JObject.Parse(jk.ToString());
+            sw.Write(jk);
+            sw.Close();
+            
+            foreach (var pair in jo) {
+                String key = pair.Key;
+                JToken jt = pair.Value;
+                JToken ctdt = jt["ctdt"];
+                List<CTDT_HK> ctdtHK = new List<CTDT_HK>();
+                if (ctdt.ToString().IndexOf('[') >= 0)
+                    ctdtHK = ctdt.ToObject<List<CTDT_HK>>();
+                else {
+                    foreach (var jtokenmonhoc in ctdt) {
+                        CTDT_HK ctdtHKItem = jtokenmonhoc.First.ToObject<CTDT_HK>();
+                        ctdtHK.Add(ctdtHKItem);
+                    }
+                }
+
+                CTDT ct = new CTDT();
+                ct.hocky = jt["hocky"].ToString();
+                ct.dsCTDT = ctdtHK;
+
+                ds.Add(ct);
+
+            }
         }
 
         static void test1() {

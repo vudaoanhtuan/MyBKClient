@@ -13,5 +13,6 @@ namespace MyBK.Lib.Data {
         public const String ttcnXML = "Data/ttcn.xml";
         public const String config = "Data/config.ini";
         public const String imageText = "Data/image.txt";
+        public const String ctdtData = "Data/ctdt.json";
     }
 }

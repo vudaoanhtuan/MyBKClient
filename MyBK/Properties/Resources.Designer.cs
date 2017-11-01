@@ -113,9 +113,29 @@ namespace MyBK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap myBK {
+            get {
+                object obj = ResourceManager.GetObject("myBK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ThongTinCaNhan {
             get {
                 object obj = ResourceManager.GetObject("ThongTinCaNhan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tien_do_hoc_tap {
+            get {
+                object obj = ResourceManager.GetObject("tien_do_hoc_tap", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
