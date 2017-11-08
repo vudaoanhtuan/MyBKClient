@@ -17,13 +17,15 @@ using MyBK.Lib.Data.JSON;
 using MyBK.Gui;
 using System.Net;
 using System.Windows.Forms;
+using MyBK.Gui.MyUserControl;
 
 
 namespace Program {
     class Program {
         static void Main(string[] args) {
-             Application.Run(new MainWindow());
+            Application.Run(new MainWindow());
             //test2();
+           
         }
 
         static void test2() {

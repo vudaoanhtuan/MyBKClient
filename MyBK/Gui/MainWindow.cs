@@ -12,13 +12,16 @@ using MyBK.Lib.Data;
 using MyBK.Gui.MyUserControl;
 using MyBK.Gui;
 using MyBK.Lib.Request;
+using System.Threading;
 
 namespace MyBK.Gui {
     public partial class MainWindow : Form {
         bool Logined;
         String user;
         String pass;
+
         public MainWindow() {
+
             InitializeComponent();
             Logined = checkLogin();
             if (!Logined) {
@@ -33,16 +36,9 @@ namespace MyBK.Gui {
             
         }
 
-        void LoadDataLoginSuccess(object sender, EventArgs e) {
-            // show panel
-            Control ct = tablePanel_all.Controls["loginform"];
-            if (ct != null) {
-                tablePanel_all.Controls.Remove(ct);
-            }
-            flowLayout_Body.Show();
-
+        public static void LoadData() {
             // load data from mybk
-
+          
             StreamWriter sw;
             MyBKStInfo mybk = new MyBKStInfo();
             String response;
@@ -79,6 +75,42 @@ namespace MyBK.Gui {
             sw.Write(image);
             sw.Close();
 
+            sw = new StreamWriter(MyBK.Lib.Data.PathData.ctdtData, false, Encoding.UTF8);
+            response = mybk.getTienDoHocTap();
+            sw.Write(response);
+            sw.Close();
+
+            
+        }
+
+ 
+
+        void LoadDataLoginSuccess(object sender, EventArgs e) {
+            // show panel
+            Control ct = tablePanel_all.Controls["loginform"];
+            if (ct != null) {
+                tablePanel_all.Controls.Remove(ct);
+            }
+
+            //Loading loading = new Loading();
+            //loading.Dock = DockStyle.Top;
+            //tablePanel_all.Controls.Add(loading, 0, 1);
+
+            // load data
+
+           
+
+
+            Thread loadData = new Thread(LoadData);
+   
+            loadData.Start();
+
+            
+
+            //    tablePanel_all.Controls.Remove(loading);
+            
+            flowLayout_Body.Show();
+            
 
         }
 
@@ -126,20 +158,25 @@ namespace MyBK.Gui {
         }
 
         private void button_exit_Click(object sender, EventArgs e) {
-            this.Close();
+            DialogResult res = MessageBox.Show("Bạn có muốn thoát không?", "MyBK", MessageBoxButtons.OKCancel);
+            if (res == DialogResult.OK)
+                this.Close();
         }
 
         private void button_logout_Click(object sender, EventArgs e) {
-            StreamWriter sw = new StreamWriter(MyBK.Lib.Data.PathData.config, false);
-            sw.Write(0);
-            sw.Close();
-            flowLayout_Body.Hide();
-            LoginForm lf = new LoginForm();
-            lf.Dock = DockStyle.Top;
-            lf.Name = "loginform";
-            lf.Margin = new Padding(50, 50, 50, 0);
-            tablePanel_all.Controls.Add(lf, 0, 1);
-            lf.buttonLoginClicked += LoadDataLoginSuccess;
+            DialogResult res = MessageBox.Show("Bạn có muốn đăng xuất không?", "MyBK", MessageBoxButtons.OKCancel);
+            if (res == DialogResult.OK) {
+                StreamWriter sw = new StreamWriter(MyBK.Lib.Data.PathData.config, false);
+                sw.Write(0);
+                sw.Close();
+                flowLayout_Body.Hide();
+                LoginForm lf = new LoginForm();
+                lf.Dock = DockStyle.Top;
+                lf.Name = "loginform";
+                lf.Margin = new Padding(50, 50, 50, 0);
+                tablePanel_all.Controls.Add(lf, 0, 1);
+                lf.buttonLoginClicked += LoadDataLoginSuccess;
+            }
         }
 
         private void button_tien_do_ht_Click(object sender, EventArgs e) {

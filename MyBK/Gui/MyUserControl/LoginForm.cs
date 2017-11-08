@@ -15,6 +15,7 @@ namespace MyBK.Gui.MyUserControl {
         public event EventHandler buttonLoginClicked;
         public LoginForm() {
             InitializeComponent();
+            textBox_pass.PasswordChar = '*';
         }
 
         private void button_login_Click(object sender, EventArgs e) {
