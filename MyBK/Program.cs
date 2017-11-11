@@ -18,49 +18,63 @@ using MyBK.Gui;
 using System.Net;
 using System.Windows.Forms;
 using MyBK.Gui.MyUserControl;
+using MyBK.Lib.Data.DangKy;
 
 
 namespace Program {
     class Program {
         static void Main(string[] args) {
             Application.Run(new MainWindow());
-            //test2();
+           
            
         }
 
+
+
         static void test2() {
-            StreamReader sr = new StreamReader("Data/ctdt.json", Encoding.UTF8);
-            String json = sr.ReadToEnd();
-            StreamWriter sw = new StreamWriter("Log.html", false, Encoding.UTF8);
-
-            List<CTDT> ds = new List<CTDT>();
-            JObject jo = JObject.Parse(json);
-            JToken jk = jo["ctdt"];
-            jo = JObject.Parse(jk.ToString());
-            sw.Write(jk);
-            sw.Close();
-            
-            foreach (var pair in jo) {
-                String key = pair.Key;
-                JToken jt = pair.Value;
-                JToken ctdt = jt["ctdt"];
-                List<CTDT_HK> ctdtHK = new List<CTDT_HK>();
-                if (ctdt.ToString().IndexOf('[') >= 0)
-                    ctdtHK = ctdt.ToObject<List<CTDT_HK>>();
-                else {
-                    foreach (var jtokenmonhoc in ctdt) {
-                        CTDT_HK ctdtHKItem = jtokenmonhoc.First.ToObject<CTDT_HK>();
-                        ctdtHK.Add(ctdtHKItem);
-                    }
-                }
-
-                CTDT ct = new CTDT();
-                ct.hocky = jt["hocky"].ToString();
-                ct.dsCTDT = ctdtHK;
-
-                ds.Add(ct);
-
+            StreamReader sr = new StreamReader(MyBK.Lib.Data.PathData.config);
+            String logined = sr.ReadLine();
+            if (logined == null) {
+                sr.Close();
+                return;
             }
+            String user = sr.ReadLine();
+            String pass = sr.ReadLine();
+            sr.Close();
+
+            MyBKDKMH dkmh = new MyBKDKMH(user, pass);
+
+            String html = dkmh.getDanhSachLoaiDangKy();
+
+            LoaiDangKy[] l = MyBK.Lib.Parser.XMLParser.getDSLoaiDangKy(html);
+
+            StreamWriter sw = new StreamWriter("log.html", false, Encoding.UTF8);
+            sw.Write(html);
+
+            LoaiDangKy li = null;
+
+            for (int i=0; i<l.Length; i++) {
+                if (l[i].tenLoaiDK.IndexOf("Kết") >= 0) {
+                    sw.WriteLine(l[i].hocKyID + "\n" + l[i].tenLoaiDK);
+                    li = l[i];
+                }
+            }
+
+            html = dkmh.getDanhSachDotDK(li.hocKyID);
+
+            DotDangKy[] d = XMLParser.getDSDotDangKy(html);
+
+            html = dkmh.getLichDangKy(d[0].idDotDangKy, d[0].idDotDangKy);
+            
+
+            html = dkmh.getThongTinNhomLopMonHoc("14014");
+
+            sw.Write(html);
+           
+
+            sw.Close();
+            Console.WriteLine("Done");
+
         }
 
         static void test1() {

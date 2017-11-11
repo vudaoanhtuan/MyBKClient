@@ -183,5 +183,10 @@ namespace MyBK.Gui {
             XemChuongTrinhDaoTao ctdt = new XemChuongTrinhDaoTao();
             ctdt.Show();
         }
+
+        private void button_myBK_dkmh_Click(object sender, EventArgs e) {
+            XemmyBKDKMH myBK = new XemmyBKDKMH();
+            myBK.Show();
+        }
     }
 }

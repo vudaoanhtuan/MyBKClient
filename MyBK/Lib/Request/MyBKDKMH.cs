@@ -11,9 +11,26 @@ namespace MyBK.Lib.Request {
     class MyBKDKMH {
         CookieContainer cookieSession;
         public MyBKDKMH() {
-            cookieSession = POST.Login("username", "password");
+            StreamReader sr = new StreamReader(MyBK.Lib.Data.PathData.config);
+            String logined = sr.ReadLine();
+            if (logined == null) {
+                sr.Close();
+                return;
+            }
+            String user = sr.ReadLine();
+            String pass = sr.ReadLine();
+            sr.Close();
+            cookieSession = POST.Login(user, pass);
         }
 
+        public MyBKDKMH(String user, String pass) {
+            cookieSession = POST.Login(user, pass);
+        }
+
+
+        public String getDanhSachLoaiDangKy() {
+            return GET.sentGET("http://mybk.hcmut.edu.vn/dkmh/dangKyMonHocForm.action", cookieSession);
+        }
         public String getDanhSachDotDK(String hocKyId) {
             return POST.sendPOST("http://mybk.hcmut.edu.vn/dkmh/getDanhSachDotDK.action", "hocKyId=" + hocKyId, cookieSession);
         }

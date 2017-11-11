@@ -68,8 +68,8 @@ namespace MyBK.Gui {
                     this.panel_lichhoc.Controls.Remove(listItem[i]);
 
             Control ct = this.panel_lichhoc.Controls["header_lichthi"];
-            if (ct != null) ;
-            this.panel_lichhoc.Controls.Remove(ct);
+            if (ct != null) 
+                this.panel_lichhoc.Controls.Remove(ct);
 
             listMH = lh.ds_mon_hoc.ToArray<MonHoc>();
             listItem = new LichHocItem[listMH.Length];

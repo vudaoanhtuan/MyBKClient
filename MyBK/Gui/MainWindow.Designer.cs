@@ -283,6 +283,7 @@
             this.button_myBK_dkmh.Size = new System.Drawing.Size(256, 186);
             this.button_myBK_dkmh.TabIndex = 3;
             this.button_myBK_dkmh.UseVisualStyleBackColor = true;
+            this.button_myBK_dkmh.Click += new System.EventHandler(this.button_myBK_dkmh_Click);
             // 
             // label6
             // 

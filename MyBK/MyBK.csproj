@@ -68,6 +68,18 @@
     <Compile Include="Gui\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\MyUserControl\NgayHoc_DKMHItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\NgayHoc_DKMHItem.Designer.cs">
+      <DependentUpon>NgayHoc_DKMHItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\XemMyBKDKMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\XemMyBKDKMH.Designer.cs">
+      <DependentUpon>XemMyBKDKMH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\MyUserControl\CTDTItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,6 +121,12 @@
     </Compile>
     <Compile Include="Gui\MyUserControl\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\NhomLopItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\MyUserControl\NhomLopItem.Designer.cs">
+      <DependentUpon>NhomLopItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\MyUserControl\TTCNHeaderItem.cs">
       <SubType>UserControl</SubType>
@@ -194,6 +212,12 @@
     <EmbeddedResource Include="Gui\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\MyUserControl\NgayHoc_DKMHItem.resx">
+      <DependentUpon>NgayHoc_DKMHItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\XemMyBKDKMH.resx">
+      <DependentUpon>XemMyBKDKMH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\MyUserControl\CTDTItem.resx">
       <DependentUpon>CTDTItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\MyUserControl\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\MyUserControl\NhomLopItem.resx">
+      <DependentUpon>NhomLopItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\MyUserControl\TTCNHeaderItem.resx">
       <DependentUpon>TTCNHeaderItem.cs</DependentUpon>

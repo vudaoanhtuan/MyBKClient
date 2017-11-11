@@ -24,6 +24,7 @@ namespace MyBK.Lib.Parser {
             sw.Close();
         }
     }
+
     class XMLParser {
         static char[] listTrim = { '\n', '\t', '\r' };
         //public parseDanhSachLop(String html) {
@@ -101,6 +102,12 @@ namespace MyBK.Lib.Parser {
             }
             monHoc.lopHoc = listLopHoc.ToArray();
             return monHoc;
+        }
+
+        public static MonHoc exportMonHoc(String html) {
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            return exportMonHoc(doc);
         }
 
         // ham lay danh sach cac loai dang ki
@@ -207,6 +214,40 @@ namespace MyBK.Lib.Parser {
 
             // Edit some fail character
             res = repairCharacter(res);
+            return res;
+        }
+
+        public static String getMonHocIdFromHtml(String html) {
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            String res = "";
+            try {
+                HtmlNode node = doc.DocumentNode.SelectNodes("/div/table//tr")[1];
+                String str = node.GetAttributeValue("onclick", "null");
+                int start = str.IndexOf(",") + 1;
+                int end = str.IndexOf(")");
+                str = str.Substring(start, end - start);
+                str = str.Trim();
+                res = str;
+            } catch (Exception e) {
+
+            }
+            return res;
+        }
+
+        public static String getSoTCMonHocIdFromHtml(String html) {
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            String res = "";
+            try {
+                HtmlNode node = doc.DocumentNode.SelectNodes("/div/table//tr")[1];
+                node = node.SelectNodes(".//td")[4];
+                
+                res = node.InnerText;
+            }
+            catch (Exception e) {
+
+            }
             return res;
         }
 

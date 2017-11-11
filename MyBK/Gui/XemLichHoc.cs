@@ -71,7 +71,7 @@ namespace MyBK.Gui {
                     this.panel_thoi_khoa_bieu.Controls.Remove(listItem[i]);
 
             Control ct = this.panel_thoi_khoa_bieu.Controls["header_tkb"];
-            if (ct != null) ;
+            if (ct != null) 
                 this.panel_thoi_khoa_bieu.Controls.Remove(ct);
 
             listMH = lh.ds_mon_hoc.ToArray<MonHoc>();

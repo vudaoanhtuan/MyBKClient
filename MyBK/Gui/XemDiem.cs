@@ -71,8 +71,8 @@ namespace MyBK.Gui {
                     this.panel_bangdiem.Controls.Remove(listItem[i]);
 
             Control ct = this.panel_bangdiem.Controls["header_bangdiem"];
-            if (ct != null) ;
-            this.panel_bangdiem.Controls.Remove(ct);
+            if (ct != null) 
+                this.panel_bangdiem.Controls.Remove(ct);
 
             listDMH = bd.bang_diem.ToArray<DiemMonHoc>();
             listItem = new DiemItem[listDMH.Length];

@@ -75,8 +75,8 @@ namespace MyBK.Gui {
                     this.panel_chuong_trinh_dao_tao.Controls.Remove(listItem[i]);
 
             Control ct = this.panel_chuong_trinh_dao_tao.Controls["header_ctdt"];
-            if (ct != null) ;
-            this.panel_chuong_trinh_dao_tao.Controls.Remove(ct);
+            if (ct != null) 
+                this.panel_chuong_trinh_dao_tao.Controls.Remove(ct);
 
             listCTDTHK = ctdt.dsCTDT.ToArray<CTDT_HK>();
             listItem = new CTDTItem[listCTDTHK.Length];
