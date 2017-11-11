@@ -23,23 +23,24 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XemDiem));
             this.comboBox_ds_hoc_ki = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel_bangdiem = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel_tinchiinfo = new System.Windows.Forms.Panel();
-            this.diemTBHK = new System.Windows.Forms.Label();
             this.panel_dieminfo = new System.Windows.Forms.Panel();
             this.diemTBTL = new System.Windows.Forms.Label();
-            this.soTCDK = new System.Windows.Forms.Label();
-            this.soTCTLHK = new System.Windows.Forms.Label();
+            this.diemTBHK = new System.Windows.Forms.Label();
+            this.panel_tinchiinfo = new System.Windows.Forms.Panel();
             this.soTCTL = new System.Windows.Forms.Label();
+            this.soTCTLHK = new System.Windows.Forms.Label();
+            this.soTCDK = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.panel_tinchiinfo.SuspendLayout();
             this.panel_dieminfo.SuspendLayout();
+            this.panel_tinchiinfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox_ds_hoc_ki
@@ -104,28 +105,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(990, 84);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // panel_tinchiinfo
-            // 
-            this.panel_tinchiinfo.Controls.Add(this.soTCTL);
-            this.panel_tinchiinfo.Controls.Add(this.soTCTLHK);
-            this.panel_tinchiinfo.Controls.Add(this.soTCDK);
-            this.panel_tinchiinfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_tinchiinfo.Location = new System.Drawing.Point(498, 3);
-            this.panel_tinchiinfo.Name = "panel_tinchiinfo";
-            this.panel_tinchiinfo.Size = new System.Drawing.Size(489, 78);
-            this.panel_tinchiinfo.TabIndex = 1;
-            // 
-            // diemTBHK
-            // 
-            this.diemTBHK.Dock = System.Windows.Forms.DockStyle.Top;
-            this.diemTBHK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diemTBHK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(60)))), ((int)(((byte)(31)))));
-            this.diemTBHK.Location = new System.Drawing.Point(0, 0);
-            this.diemTBHK.Name = "diemTBHK";
-            this.diemTBHK.Size = new System.Drawing.Size(489, 23);
-            this.diemTBHK.TabIndex = 0;
-            this.diemTBHK.Text = "Điểm trung bình học kỳ";
-            // 
             // panel_dieminfo
             // 
             this.panel_dieminfo.Controls.Add(this.diemTBTL);
@@ -147,27 +126,27 @@
             this.diemTBTL.TabIndex = 1;
             this.diemTBTL.Text = "Điểm trung bình tích lũy";
             // 
-            // soTCDK
+            // diemTBHK
             // 
-            this.soTCDK.Dock = System.Windows.Forms.DockStyle.Top;
-            this.soTCDK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soTCDK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(60)))), ((int)(((byte)(31)))));
-            this.soTCDK.Location = new System.Drawing.Point(0, 0);
-            this.soTCDK.Name = "soTCDK";
-            this.soTCDK.Size = new System.Drawing.Size(489, 23);
-            this.soTCDK.TabIndex = 1;
-            this.soTCDK.Text = "Số tín chỉ đăng ký học kỳ";
+            this.diemTBHK.Dock = System.Windows.Forms.DockStyle.Top;
+            this.diemTBHK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diemTBHK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(60)))), ((int)(((byte)(31)))));
+            this.diemTBHK.Location = new System.Drawing.Point(0, 0);
+            this.diemTBHK.Name = "diemTBHK";
+            this.diemTBHK.Size = new System.Drawing.Size(489, 23);
+            this.diemTBHK.TabIndex = 0;
+            this.diemTBHK.Text = "Điểm trung bình học kỳ";
             // 
-            // soTCTLHK
+            // panel_tinchiinfo
             // 
-            this.soTCTLHK.Dock = System.Windows.Forms.DockStyle.Top;
-            this.soTCTLHK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soTCTLHK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(60)))), ((int)(((byte)(31)))));
-            this.soTCTLHK.Location = new System.Drawing.Point(0, 23);
-            this.soTCTLHK.Name = "soTCTLHK";
-            this.soTCTLHK.Size = new System.Drawing.Size(489, 23);
-            this.soTCTLHK.TabIndex = 2;
-            this.soTCTLHK.Text = "Số tín chỉ tích lũy học kỳ";
+            this.panel_tinchiinfo.Controls.Add(this.soTCTL);
+            this.panel_tinchiinfo.Controls.Add(this.soTCTLHK);
+            this.panel_tinchiinfo.Controls.Add(this.soTCDK);
+            this.panel_tinchiinfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_tinchiinfo.Location = new System.Drawing.Point(498, 3);
+            this.panel_tinchiinfo.Name = "panel_tinchiinfo";
+            this.panel_tinchiinfo.Size = new System.Drawing.Size(489, 78);
+            this.panel_tinchiinfo.TabIndex = 1;
             // 
             // soTCTL
             // 
@@ -180,19 +159,42 @@
             this.soTCTL.TabIndex = 3;
             this.soTCTL.Text = "Số tín chỉ tích lũy";
             // 
+            // soTCTLHK
+            // 
+            this.soTCTLHK.Dock = System.Windows.Forms.DockStyle.Top;
+            this.soTCTLHK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.soTCTLHK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(60)))), ((int)(((byte)(31)))));
+            this.soTCTLHK.Location = new System.Drawing.Point(0, 23);
+            this.soTCTLHK.Name = "soTCTLHK";
+            this.soTCTLHK.Size = new System.Drawing.Size(489, 23);
+            this.soTCTLHK.TabIndex = 2;
+            this.soTCTLHK.Text = "Số tín chỉ tích lũy học kỳ";
+            // 
+            // soTCDK
+            // 
+            this.soTCDK.Dock = System.Windows.Forms.DockStyle.Top;
+            this.soTCDK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.soTCDK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(60)))), ((int)(((byte)(31)))));
+            this.soTCDK.Location = new System.Drawing.Point(0, 0);
+            this.soTCDK.Name = "soTCDK";
+            this.soTCDK.Size = new System.Drawing.Size(489, 23);
+            this.soTCDK.TabIndex = 1;
+            this.soTCDK.Text = "Số tín chỉ đăng ký học kỳ";
+            // 
             // XemDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 498);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "XemDiem";
             this.Text = "XemDiem";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel_tinchiinfo.ResumeLayout(false);
             this.panel_dieminfo.ResumeLayout(false);
+            this.panel_tinchiinfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

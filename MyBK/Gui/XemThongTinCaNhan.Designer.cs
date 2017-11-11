@@ -23,9 +23,10 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XemThongTinCaNhan));
             this.panel_anh = new System.Windows.Forms.Panel();
-            this.panel_info = new System.Windows.Forms.Panel();
             this.panel_image = new System.Windows.Forms.Panel();
+            this.panel_info = new System.Windows.Forms.Panel();
             this.panel_anh.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,15 +39,6 @@
             this.panel_anh.Size = new System.Drawing.Size(991, 220);
             this.panel_anh.TabIndex = 0;
             // 
-            // panel_info
-            // 
-            this.panel_info.AutoScroll = true;
-            this.panel_info.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_info.Location = new System.Drawing.Point(0, 220);
-            this.panel_info.Name = "panel_info";
-            this.panel_info.Size = new System.Drawing.Size(991, 644);
-            this.panel_info.TabIndex = 1;
-            // 
             // panel_image
             // 
             this.panel_image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -56,6 +48,15 @@
             this.panel_image.Size = new System.Drawing.Size(189, 202);
             this.panel_image.TabIndex = 0;
             // 
+            // panel_info
+            // 
+            this.panel_info.AutoScroll = true;
+            this.panel_info.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_info.Location = new System.Drawing.Point(0, 220);
+            this.panel_info.Name = "panel_info";
+            this.panel_info.Size = new System.Drawing.Size(991, 644);
+            this.panel_info.TabIndex = 1;
+            // 
             // XemThongTinCaNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -63,6 +64,7 @@
             this.ClientSize = new System.Drawing.Size(991, 864);
             this.Controls.Add(this.panel_info);
             this.Controls.Add(this.panel_anh);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "XemThongTinCaNhan";
             this.Text = "XemThongTinCaNhan";
             this.panel_anh.ResumeLayout(false);

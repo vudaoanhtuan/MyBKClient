@@ -20,6 +20,12 @@ namespace MyBK.Gui {
         String user;
         String pass;
 
+        public static void Main(String[] args) {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainWindow());
+        }
+
         public MainWindow() {
 
             InitializeComponent();

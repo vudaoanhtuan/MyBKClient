@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.tablePanel_all = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayout_Body = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayout_thoi_khoa_bieu = new System.Windows.Forms.FlowLayoutPanel();
@@ -413,6 +414,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 618);
             this.Controls.Add(this.tablePanel_all);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "Test";
             this.tablePanel_all.ResumeLayout(false);

@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XemmyBKDKMH));
             this.tableLayoutPanel_mainPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_search = new System.Windows.Forms.Button();
@@ -32,14 +33,14 @@
             this.comboBox_loaiDK = new System.Windows.Forms.ComboBox();
             this.panel_monhoc = new System.Windows.Forms.Panel();
             this.panel_nhomLopHeader = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label_maMH = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label_tenMH = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label_soTC = new System.Windows.Forms.Label();
             this.nhomLopHeader = new MyBK.Gui.MyUserControl.NhomLopItem();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_soTC = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label_tenMH = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label_maMH = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel_mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel_nhomLopHeader.SuspendLayout();
@@ -144,6 +145,14 @@
             this.panel_nhomLopHeader.Size = new System.Drawing.Size(1157, 54);
             this.panel_nhomLopHeader.TabIndex = 6;
             // 
+            // nhomLopHeader
+            // 
+            this.nhomLopHeader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nhomLopHeader.Location = new System.Drawing.Point(0, 0);
+            this.nhomLopHeader.Name = "nhomLopHeader";
+            this.nhomLopHeader.Size = new System.Drawing.Size(1157, 54);
+            this.nhomLopHeader.TabIndex = 5;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 7;
@@ -168,47 +177,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1157, 34);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
-            // label3
+            // label_soTC
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 34);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Mã MH:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_maMH
-            // 
-            this.label_maMH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_maMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_maMH.Location = new System.Drawing.Point(128, 0);
-            this.label_maMH.Name = "label_maMH";
-            this.label_maMH.Size = new System.Drawing.Size(120, 34);
-            this.label_maMH.TabIndex = 1;
-            this.label_maMH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(254, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 34);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Tên MH:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_tenMH
-            // 
-            this.label_tenMH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_tenMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tenMH.Location = new System.Drawing.Point(365, 0);
-            this.label_tenMH.Name = "label_tenMH";
-            this.label_tenMH.Size = new System.Drawing.Size(266, 34);
-            this.label_tenMH.TabIndex = 3;
-            this.label_tenMH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_soTC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_soTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_soTC.Location = new System.Drawing.Point(744, 0);
+            this.label_soTC.Name = "label_soTC";
+            this.label_soTC.Size = new System.Drawing.Size(91, 34);
+            this.label_soTC.TabIndex = 5;
+            this.label_soTC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
@@ -221,23 +198,47 @@
             this.label7.Text = "Số TC:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label_soTC
+            // label_tenMH
             // 
-            this.label_soTC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_soTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_soTC.Location = new System.Drawing.Point(744, 0);
-            this.label_soTC.Name = "label_soTC";
-            this.label_soTC.Size = new System.Drawing.Size(91, 34);
-            this.label_soTC.TabIndex = 5;
-            this.label_soTC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_tenMH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_tenMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tenMH.Location = new System.Drawing.Point(365, 0);
+            this.label_tenMH.Name = "label_tenMH";
+            this.label_tenMH.Size = new System.Drawing.Size(266, 34);
+            this.label_tenMH.TabIndex = 3;
+            this.label_tenMH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // nhomLopHeader
+            // label5
             // 
-            this.nhomLopHeader.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nhomLopHeader.Location = new System.Drawing.Point(0, 0);
-            this.nhomLopHeader.Name = "nhomLopHeader";
-            this.nhomLopHeader.Size = new System.Drawing.Size(1157, 54);
-            this.nhomLopHeader.TabIndex = 5;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(254, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 34);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Tên MH:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_maMH
+            // 
+            this.label_maMH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_maMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_maMH.Location = new System.Drawing.Point(128, 0);
+            this.label_maMH.Name = "label_maMH";
+            this.label_maMH.Size = new System.Drawing.Size(120, 34);
+            this.label_maMH.TabIndex = 1;
+            this.label_maMH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 34);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Mã MH:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // XemmyBKDKMH
             // 
@@ -245,6 +246,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 675);
             this.Controls.Add(this.tableLayoutPanel_mainPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "XemmyBKDKMH";
             this.Text = "myBKDKMH";
             this.tableLayoutPanel_mainPanel.ResumeLayout(false);
