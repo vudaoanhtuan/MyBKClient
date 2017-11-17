@@ -38,6 +38,12 @@ namespace MyBK.Gui {
                 lf.Margin = new Padding(50,50,50,0);
                 tablePanel_all.Controls.Add(lf, 0, 1);
                 lf.buttonLoginClicked += LoadDataLoginSuccess;
+            } else {
+                StreamReader sr = new StreamReader(MyBK.Lib.Data.PathData.config);
+                String log = sr.ReadLine();
+                String user = sr.ReadLine();
+                sr.Close();
+                this.Text = "MyBK - " + user;
             }
             
         }

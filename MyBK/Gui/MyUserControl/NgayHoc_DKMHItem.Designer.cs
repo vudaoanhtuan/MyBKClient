@@ -36,12 +36,12 @@
             // tableLayout_lich_hoc_item
             // 
             this.tableLayout_lich_hoc_item.ColumnCount = 6;
-            this.tableLayout_lich_hoc_item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.98471F));
-            this.tableLayout_lich_hoc_item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.91641F));
+            this.tableLayout_lich_hoc_item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.57696F));
+            this.tableLayout_lich_hoc_item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.79511F));
             this.tableLayout_lich_hoc_item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.664628F));
             this.tableLayout_lich_hoc_item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.95107F));
-            this.tableLayout_lich_hoc_item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.256881F));
-            this.tableLayout_lich_hoc_item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.12436F));
+            this.tableLayout_lich_hoc_item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.480123F));
+            this.tableLayout_lich_hoc_item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.43017F));
             this.tableLayout_lich_hoc_item.Controls.Add(this.bt, 4, 0);
             this.tableLayout_lich_hoc_item.Controls.Add(this.coso, 3, 0);
             this.tableLayout_lich_hoc_item.Controls.Add(this.tuan_hoc, 5, 0);
@@ -61,10 +61,10 @@
             this.bt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.bt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt.Location = new System.Drawing.Point(526, 1);
+            this.bt.Location = new System.Drawing.Point(511, 1);
             this.bt.Margin = new System.Windows.Forms.Padding(1);
             this.bt.Name = "bt";
-            this.bt.Size = new System.Drawing.Size(79, 45);
+            this.bt.Size = new System.Drawing.Size(91, 45);
             this.bt.TabIndex = 8;
             this.bt.Text = "BT/TN";
             this.bt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,7 +74,7 @@
             this.coso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.coso.Dock = System.Windows.Forms.DockStyle.Fill;
             this.coso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coso.Location = new System.Drawing.Point(448, 1);
+            this.coso.Location = new System.Drawing.Point(433, 1);
             this.coso.Margin = new System.Windows.Forms.Padding(1);
             this.coso.Name = "coso";
             this.coso.Size = new System.Drawing.Size(76, 45);
@@ -87,10 +87,10 @@
             this.tuan_hoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.tuan_hoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tuan_hoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tuan_hoc.Location = new System.Drawing.Point(607, 1);
+            this.tuan_hoc.Location = new System.Drawing.Point(604, 1);
             this.tuan_hoc.Margin = new System.Windows.Forms.Padding(1);
             this.tuan_hoc.Name = "tuan_hoc";
-            this.tuan_hoc.Size = new System.Drawing.Size(373, 45);
+            this.tuan_hoc.Size = new System.Drawing.Size(376, 45);
             this.tuan_hoc.TabIndex = 6;
             this.tuan_hoc.Text = "Tuần Học";
             this.tuan_hoc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -100,7 +100,7 @@
             this.phong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.phong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.phong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phong.Location = new System.Drawing.Point(363, 1);
+            this.phong.Location = new System.Drawing.Point(348, 1);
             this.phong.Margin = new System.Windows.Forms.Padding(1);
             this.phong.Name = "phong";
             this.phong.Size = new System.Drawing.Size(83, 45);
@@ -113,10 +113,10 @@
             this.tiet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
             this.tiet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tiet.Location = new System.Drawing.Point(148, 1);
+            this.tiet.Location = new System.Drawing.Point(144, 1);
             this.tiet.Margin = new System.Windows.Forms.Padding(1);
             this.tiet.Name = "tiet";
-            this.tiet.Size = new System.Drawing.Size(213, 45);
+            this.tiet.Size = new System.Drawing.Size(202, 45);
             this.tiet.TabIndex = 4;
             this.tiet.Text = "Tiết";
             this.tiet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -129,7 +129,7 @@
             this.thu.Location = new System.Drawing.Point(50, 1);
             this.thu.Margin = new System.Windows.Forms.Padding(50, 1, 1, 1);
             this.thu.Name = "thu";
-            this.thu.Size = new System.Drawing.Size(96, 45);
+            this.thu.Size = new System.Drawing.Size(92, 45);
             this.thu.TabIndex = 3;
             this.thu.Text = "Thứ";
             this.thu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -410,7 +410,7 @@
             this.Controls.Add(this.tablePanel_all);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
-            this.Text = "Test";
+            this.Text = "MyBK";
             this.tablePanel_all.ResumeLayout(false);
             this.flowLayout_Body.ResumeLayout(false);
             this.flowLayout_thoi_khoa_bieu.ResumeLayout(false);
