@@ -83,6 +83,7 @@ namespace MyBK.Gui {
                     itembh.bt.Text = bh[j].lopBT;
                     itembh.tuan_hoc.Text = bh[j].tuan;
                     itembh.Dock = DockStyle.Top;
+                    itembh.TabIndex = i;
                     panel_monhoc.Controls.Add(itembh);
                 }
 

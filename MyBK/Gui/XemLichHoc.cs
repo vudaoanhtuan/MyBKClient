@@ -17,7 +17,7 @@ namespace MyBK.Gui {
     public partial class XemLichHoc : Form {
         LichHoc[] listLH;
         MonHoc[] listMH;
-        LichHocItem[] listItem;
+  
         public XemLichHoc() {
             InitializeComponent();
             this.setupHeader();
@@ -66,16 +66,15 @@ namespace MyBK.Gui {
 
         public void setLichHoc(LichHoc lh) {
           
-            if (listItem != null)
-                for (int i = 0; i < listItem.Length; i++)
-                    this.panel_thoi_khoa_bieu.Controls.Remove(listItem[i]);
+
+            this.panel_thoi_khoa_bieu.Controls.Clear();
 
             Control ct = this.panel_thoi_khoa_bieu.Controls["header_tkb"];
             if (ct != null) 
                 this.panel_thoi_khoa_bieu.Controls.Remove(ct);
 
             listMH = lh.ds_mon_hoc.ToArray<MonHoc>();
-            listItem = new LichHocItem[listMH.Length];
+
             for (int i=listMH.Length-1; i>=0; i--) {
                 LichHocItem item = new LichHocItem();
                 item.ma_mon_hoc.Text = listMH[i].ma_mh;
@@ -85,7 +84,7 @@ namespace MyBK.Gui {
                 item.phong.Text = listMH[i].phong1;
                 item.thu.Text = listMH[i].thu1;
                 item.tuan_hoc.Text = listMH[i].tuan_hoc;
-                listItem[i] = item;
+                item.TabIndex = i;
                 item.Dock = DockStyle.Top;
                 this.panel_thoi_khoa_bieu.Controls.Add(item);
             }

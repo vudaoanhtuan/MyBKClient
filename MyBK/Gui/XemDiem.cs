@@ -17,7 +17,7 @@ namespace MyBK.Gui {
     public partial class XemDiem : Form {
         DiemMonHoc[] listDMH;
         BangDiem[] listBD;
-        DiemItem[] listItem;
+
 
         public XemDiem() {
             InitializeComponent();
@@ -28,9 +28,10 @@ namespace MyBK.Gui {
             sr.Close();
             listBD = BangDiem.getBangDiem(json);
 
-            this.setLichHoc(listBD[0]);
-            comboBox_ds_hoc_ki.Text = listBD[0].ten_hocky;
             this.setupDSHocKy();
+            this.setBangDiem(listBD[0]);
+            comboBox_ds_hoc_ki.Text = listBD[0].ten_hocky;
+            
         }
         public void setupDSHocKy() {
             comboBox_ds_hoc_ki.DisplayMember = "KeyValuePair<string, LichHoc>.Key";
@@ -64,18 +65,14 @@ namespace MyBK.Gui {
             this.panel_bangdiem.Controls.Add(lt);
         }
 
-        public void setLichHoc(BangDiem bd) {
+        public void setBangDiem(BangDiem bd) {
 
-            if (listItem != null)
-                for (int i = 0; i < listItem.Length; i++)
-                    this.panel_bangdiem.Controls.Remove(listItem[i]);
+            
+            this.panel_bangdiem.Controls.Clear();
 
-            Control ct = this.panel_bangdiem.Controls["header_bangdiem"];
-            if (ct != null) 
-                this.panel_bangdiem.Controls.Remove(ct);
-
+    
             listDMH = bd.bang_diem.ToArray<DiemMonHoc>();
-            listItem = new DiemItem[listDMH.Length];
+
             for (int i = listDMH.Length - 1; i >= 0; i--) {
                 DiemItem item = new DiemItem();
                 item.ma_mon_hoc.Text = listDMH[i].ma_mh;
@@ -85,9 +82,11 @@ namespace MyBK.Gui {
                 item.diemthanhphan.Text = listDMH[i].diem_thanhphan;
                 item.diemthi.Text = listDMH[i].diem_thi;
                 item.diemtongket.Text = listDMH[i].diem_tong_ket;
-                listItem[i] = item;
+
                 item.Dock = DockStyle.Top;
+                item.TabIndex = i;
                 this.panel_bangdiem.Controls.Add(item);
+
             }
             setupHeader();
             this.diemTBHK.Text = "Điểm trung bình học kỳ: " + bd.diem_tb;
@@ -99,7 +98,7 @@ namespace MyBK.Gui {
 
         private void comboBox_ds_hoc_ki_SelectedValueChanged(object sender, EventArgs e) {
             KeyValuePair<String, BangDiem> item = (KeyValuePair<String, BangDiem>)comboBox_ds_hoc_ki.SelectedItem;
-            this.setLichHoc(item.Value);
+            this.setBangDiem(item.Value);
         }
 
     }

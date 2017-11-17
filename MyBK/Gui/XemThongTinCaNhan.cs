@@ -27,7 +27,7 @@ namespace MyBK.Gui {
             for (int i=12; i<listInfo.Count; i++) {
                 line = listInfo[i];
                 if (line.IndexOf("|") > 0) {
-                    addItem(line.Split('|')[0], line.Split('|')[1]);
+                    addItem(line.Split('|')[0], line.Split('|')[1], 40 - i);
                 }
                 else {
                     addHeader(line);
@@ -44,7 +44,10 @@ namespace MyBK.Gui {
             ms.Write(imageBytes, 0, imageBytes.Length);
             Image image = Image.FromStream(ms, true);
             panel_image.BackgroundImage = image;
-            
+            panel_info.AutoScroll = true;
+            panel_info.TabIndex = 0;
+            panel_info.VerticalScroll.Value = 0;
+
         }
 
         public void addHeader(String info) {
@@ -56,6 +59,12 @@ namespace MyBK.Gui {
         public void addItem(String key, String value) {
             TTCNItem item = new TTCNItem(key, value);
             item.Dock = DockStyle.Top;
+            panel_info.Controls.Add(item);
+        }
+        public void addItem(String key, String value, int index) {
+            TTCNItem item = new TTCNItem(key, value);
+            item.Dock = DockStyle.Top;
+            item.TabIndex = index;
             panel_info.Controls.Add(item);
         }
     }

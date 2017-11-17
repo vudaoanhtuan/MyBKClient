@@ -17,7 +17,7 @@ namespace MyBK.Gui {
     public partial class XemChuongTrinhDaoTao : Form {
         CTDT[] listCTDT;
         CTDT_HK[] listCTDTHK;
-        CTDTItem[] listItem;
+        
         public XemChuongTrinhDaoTao() {
             InitializeComponent();
             this.setupHeader();
@@ -70,16 +70,15 @@ namespace MyBK.Gui {
 
         public void setCTDT(CTDT ctdt) {
 
-            if (listItem != null)
-                for (int i = 0; i < listItem.Length; i++)
-                    this.panel_chuong_trinh_dao_tao.Controls.Remove(listItem[i]);
+  
+            this.panel_chuong_trinh_dao_tao.Controls.Clear();
 
             Control ct = this.panel_chuong_trinh_dao_tao.Controls["header_ctdt"];
             if (ct != null) 
                 this.panel_chuong_trinh_dao_tao.Controls.Remove(ct);
 
             listCTDTHK = ctdt.dsCTDT.ToArray<CTDT_HK>();
-            listItem = new CTDTItem[listCTDTHK.Length];
+     
             for (int i = listCTDTHK.Length - 1; i >= 0; i--) {
                 CTDTItem item = new CTDTItem();
                 item.stt.Text = (listCTDTHK.Length - i).ToString();
@@ -107,7 +106,7 @@ namespace MyBK.Gui {
                                 
                 item.diem.Text = listCTDTHK[i].diem;
                 item.ghi_chu.Text = "";
-                listItem[i] = item;
+                item.TabIndex = i;
                 item.Dock = DockStyle.Top;
                 this.panel_chuong_trinh_dao_tao.Controls.Add(item);
             }

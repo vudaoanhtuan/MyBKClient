@@ -15,7 +15,7 @@ namespace MyBK.Gui {
     public partial class XemLichThi : Form {
         LichThi[] listLT;
         MonThi[] listMT;
-        LichThiItem[] listItem;
+
         public XemLichThi() {
             InitializeComponent();
             StreamReader sr = new StreamReader(MyBK.Lib.Data.PathData.lichThiData, Encoding.UTF8);
@@ -63,16 +63,14 @@ namespace MyBK.Gui {
         }
         public void setLichThi(LichThi lh) {
 
-            if (listItem != null)
-                for (int i = 0; i < listItem.Length; i++)
-                    this.panel_lichthi.Controls.Remove(listItem[i]);
+            this.panel_lichthi.Controls.Clear();
 
             Control ct = this.panel_lichthi.Controls["header_lichthi"];
             if (ct != null) 
                 this.panel_lichthi.Controls.Remove(ct);
 
             listMT = lh.ds_mon_thi.ToArray<MonThi>();
-            listItem = new LichThiItem[listMT.Length];
+       
             for (int i = listMT.Length - 1; i >= 0; i--) {
                 LichThiItem item = new LichThiItem();
                 item.ma_mon_hoc.Text = listMT[i].ma_mh;
@@ -84,7 +82,7 @@ namespace MyBK.Gui {
                 item.phongCK.Text = listMT[i].phong_thi;
                 item.ngayCK.Text = listMT[i].ngaythi;
                 item.gioCK.Text = listMT[i].gio_thi;
-                listItem[i] = item;
+                item.TabIndex = i;
                 item.Dock = DockStyle.Top;
                 this.panel_lichthi.Controls.Add(item);
             }

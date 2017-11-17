@@ -15,7 +15,7 @@ namespace MyBK.Gui {
     public partial class XemThoiKhoaBieu : Form {
         LichHoc[] listLH;
         MonHoc[] listMH;
-        LichHocItem[] listItem;
+
         public XemThoiKhoaBieu() {
             InitializeComponent();
             StreamReader sr = new StreamReader(MyBK.Lib.Data.PathData.lichHocData, Encoding.UTF8);
@@ -63,16 +63,14 @@ namespace MyBK.Gui {
         }
         public void setLichThi(LichHoc lh) {
 
-            if (listItem != null)
-                for (int i = 0; i < listItem.Length; i++)
-                    this.panel_lichhoc.Controls.Remove(listItem[i]);
+            this.panel_lichhoc.Controls.Clear();
 
             Control ct = this.panel_lichhoc.Controls["header_lichthi"];
             if (ct != null) 
                 this.panel_lichhoc.Controls.Remove(ct);
 
             listMH = lh.ds_mon_hoc.ToArray<MonHoc>();
-            listItem = new LichHocItem[listMH.Length];
+
             for (int i = listMH.Length - 1; i >= 0; i--) {
                 LichHocItem item = new LichHocItem();
                 item.ma_mon_hoc.Text = listMH[i].ma_mh;
@@ -82,8 +80,8 @@ namespace MyBK.Gui {
                 item.thu.Text = listMH[i].thu1;
                 item.tiet.Text = listMH[i].tiet_bd1 + "-" + listMH[i].tiet_kt1;
                 item.tuan_hoc.Text = listMH[i].tuan_hoc;
-        
-                listItem[i] = item;
+
+                item.TabIndex = i;
                 item.Dock = DockStyle.Top;
                 this.panel_lichhoc.Controls.Add(item);
             }
