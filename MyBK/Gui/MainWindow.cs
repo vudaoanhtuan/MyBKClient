@@ -194,5 +194,9 @@ namespace MyBK.Gui {
             XemmyBKDKMH myBK = new XemmyBKDKMH();
             myBK.Show();
         }
+
+        private void button_refresh_Click(object sender, EventArgs e) {
+            LoadData();
+        }
     }
 }
