@@ -123,6 +123,28 @@ namespace MyBK.Gui {
 
         }
 
-
+        private void button_export_Click(object sender, EventArgs e) {
+            String msmh = textBox_msmh.Text;
+            if (msmh == "")
+                MessageBox.Show("Mã số môn học không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else {
+                String html = dkmh.searchMonHocDangKy(msmh);
+                if (html.IndexOf("tblMonHocMoLop") < 0) {
+                    MessageBox.Show("Môn học này không được mở!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {
+                    String monhocId = XMLParser.getMonHocIdFromHtml(html);
+                    String soTC = XMLParser.getSoTCMonHocIdFromHtml(html);
+                    html = dkmh.getThongTinNhomLopMonHoc(monhocId);
+                    SaveFileDialog op = new SaveFileDialog();
+                    op.Filter = "ExcelFile| *.xlsx";
+                    op.ShowDialog();
+                    if (op.FileName != "")
+                        MyBK.Lib.Data.JSON.LichHoc.exportExcelDKMH(op.FileName, html);
+                    else
+                        MessageBox.Show("Tên file không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
     }
 }

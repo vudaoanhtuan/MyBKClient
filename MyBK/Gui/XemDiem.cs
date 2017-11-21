@@ -101,5 +101,18 @@ namespace MyBK.Gui {
             this.setBangDiem(item.Value);
         }
 
+        private void button_export_Click(object sender, EventArgs e) {
+            SaveFileDialog op = new SaveFileDialog();
+            op.Filter = "ExcelFile| *.xlsx";
+            op.ShowDialog();
+
+            if (op.FileName != "") {
+                KeyValuePair<String, BangDiem> item = (KeyValuePair<String, BangDiem>)comboBox_ds_hoc_ki.SelectedItem;
+                BangDiem.exportExcel(op.FileName, item.Value.hk_nh);
+            }
+            else {
+                MessageBox.Show("Tên file không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

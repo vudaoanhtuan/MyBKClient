@@ -92,5 +92,19 @@ namespace MyBK.Gui {
             KeyValuePair<String, LichHoc> item = (KeyValuePair<String, LichHoc>)comboBox_ds_hoc_ki.SelectedItem;
             this.setLichThi(item.Value);
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            SaveFileDialog op = new SaveFileDialog();
+            op.Filter = "ExcelFile| *.xlsx";
+            op.ShowDialog();
+
+            if (op.FileName != "") {
+                KeyValuePair<String, LichHoc> item = (KeyValuePair<String, LichHoc>)comboBox_ds_hoc_ki.SelectedItem;
+                LichHoc.exportExcel(op.FileName, item.Value.hk_nh);
+            }
+            else {
+                MessageBox.Show("Tên file không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

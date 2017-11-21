@@ -28,6 +28,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel_lichthi = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_export = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,12 +71,24 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button_export);
             this.panel1.Controls.Add(this.comboBox_ds_hoc_ki);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1023, 38);
             this.panel1.TabIndex = 1;
+            // 
+            // button_export
+            // 
+            this.button_export.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button_export.Location = new System.Drawing.Point(936, 0);
+            this.button_export.Name = "button_export";
+            this.button_export.Size = new System.Drawing.Size(87, 38);
+            this.button_export.TabIndex = 2;
+            this.button_export.Text = "Xuất file";
+            this.button_export.UseVisualStyleBackColor = true;
+            this.button_export.Click += new System.EventHandler(this.button1_Click);
             // 
             // XemLichThi
             // 
@@ -98,5 +111,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel_lichthi;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button_export;
     }
 }

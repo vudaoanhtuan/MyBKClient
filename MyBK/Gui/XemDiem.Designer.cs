@@ -28,6 +28,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel_bangdiem = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_export = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel_dieminfo = new System.Windows.Forms.Panel();
             this.diemTBTL = new System.Windows.Forms.Label();
@@ -69,26 +70,38 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.36144F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 89F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(996, 498);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(996, 567);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // panel_bangdiem
             // 
             this.panel_bangdiem.AutoScroll = true;
             this.panel_bangdiem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_bangdiem.Location = new System.Drawing.Point(3, 42);
+            this.panel_bangdiem.Location = new System.Drawing.Point(3, 49);
             this.panel_bangdiem.Name = "panel_bangdiem";
-            this.panel_bangdiem.Size = new System.Drawing.Size(990, 363);
+            this.panel_bangdiem.Size = new System.Drawing.Size(990, 425);
             this.panel_bangdiem.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button_export);
             this.panel1.Controls.Add(this.comboBox_ds_hoc_ki);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(990, 33);
+            this.panel1.Size = new System.Drawing.Size(990, 40);
             this.panel1.TabIndex = 1;
+            // 
+            // button_export
+            // 
+            this.button_export.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button_export.Location = new System.Drawing.Point(905, 0);
+            this.button_export.Name = "button_export";
+            this.button_export.Size = new System.Drawing.Size(85, 40);
+            this.button_export.TabIndex = 2;
+            this.button_export.Text = "Xuất file";
+            this.button_export.UseVisualStyleBackColor = true;
+            this.button_export.Click += new System.EventHandler(this.button_export_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -98,7 +111,7 @@
             this.tableLayoutPanel2.Controls.Add(this.panel_dieminfo, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel_tinchiinfo, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 411);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 480);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -185,7 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 498);
+            this.ClientSize = new System.Drawing.Size(996, 567);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "XemDiem";
@@ -213,5 +226,6 @@
         private System.Windows.Forms.Label soTCTL;
         private System.Windows.Forms.Label soTCTLHK;
         private System.Windows.Forms.Label soTCDK;
+        private System.Windows.Forms.Button button_export;
     }
 }

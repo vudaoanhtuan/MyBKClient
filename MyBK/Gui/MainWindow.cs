@@ -20,6 +20,7 @@ namespace MyBK.Gui {
         String user;
         String pass;
 
+        [STAThread]
         public static void Main(String[] args) {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -52,7 +53,13 @@ namespace MyBK.Gui {
             // load data from mybk
           
             StreamWriter sw;
-            MyBKStInfo mybk = new MyBKStInfo();
+            MyBKStInfo mybk = null;
+            try {
+                mybk = new MyBKStInfo();
+            } catch (Exception e) {
+                throw e;
+                return;
+            }
             String response;
 
             sw = new StreamWriter(MyBK.Lib.Data.PathData.lichHocData, false, Encoding.UTF8);
@@ -113,15 +120,28 @@ namespace MyBK.Gui {
            
 
 
-            Thread loadData = new Thread(LoadData);
-   
-            loadData.Start();
+            try {
+                LoadData();
+                flowLayout_Body.Show();
+            } catch (Exception err) {
+                MessageBox.Show(err.Message, "Lỗi");
+                StreamWriter sw = new StreamWriter(MyBK.Lib.Data.PathData.config, false);
+                sw.Write(0);
+                sw.Close();
+                flowLayout_Body.Hide();
+                LoginForm lf = new LoginForm();
+                lf.Dock = DockStyle.Top;
+                lf.Name = "loginform";
+                lf.Margin = new Padding(50, 50, 50, 0);
+                tablePanel_all.Controls.Add(lf, 0, 1);
+                lf.buttonLoginClicked += LoadDataLoginSuccess;
+            }
 
             
 
             //    tablePanel_all.Controls.Remove(loading);
             
-            flowLayout_Body.Show();
+           
             
 
         }
@@ -203,6 +223,7 @@ namespace MyBK.Gui {
 
         private void button_refresh_Click(object sender, EventArgs e) {
             LoadData();
+            
         }
     }
 }

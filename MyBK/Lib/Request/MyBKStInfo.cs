@@ -26,8 +26,13 @@ namespace MyBK.Lib.Request {
             
             _token = null;
             if (cc != null) {
-                HttpWebResponse res = GET.getResponse("http://www.aao.hcmut.edu.vn/stinfo/", cc);
-
+                HttpWebResponse res;
+                try {
+                    res = GET.getResponse("http://www.aao.hcmut.edu.vn/stinfo/", cc);
+                } catch (Exception e) {
+                    throw new Exception("Không thể truy cập http://www.aao.hcmut.edu.vn");
+                    return;
+                }
                 // Get cookie
                 String strCookie = res.Headers.Get("Set-Cookie");
 

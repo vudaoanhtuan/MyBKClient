@@ -41,6 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label_maMH = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button_export = new System.Windows.Forms.Button();
             this.tableLayoutPanel_mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel_nhomLopHeader.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button_export);
             this.panel1.Controls.Add(this.button_search);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -240,6 +242,16 @@
             this.label3.Text = "Mã MH:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button_export
+            // 
+            this.button_export.Location = new System.Drawing.Point(914, 11);
+            this.button_export.Name = "button_export";
+            this.button_export.Size = new System.Drawing.Size(80, 38);
+            this.button_export.TabIndex = 6;
+            this.button_export.Text = "Xuất file";
+            this.button_export.UseVisualStyleBackColor = true;
+            this.button_export.Click += new System.EventHandler(this.button_export_Click);
+            // 
             // XemmyBKDKMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -276,5 +288,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label_maMH;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button_export;
     }
 }
