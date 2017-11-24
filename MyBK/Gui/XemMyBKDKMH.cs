@@ -140,9 +140,7 @@ namespace MyBK.Gui {
                     op.Filter = "ExcelFile| *.xlsx";
                     op.ShowDialog();
                     if (op.FileName != "")
-                        MyBK.Lib.Data.JSON.LichHoc.exportExcelDKMH(op.FileName, html);
-                    else
-                        MessageBox.Show("Tên file không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MyBK.Lib.Data.JSON.LichHoc.exportExcelDKMH(op.FileName, html);   
                 }
             }
         }

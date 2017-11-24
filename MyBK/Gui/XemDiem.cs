@@ -78,7 +78,7 @@ namespace MyBK.Gui {
                 item.ma_mon_hoc.Text = listDMH[i].ma_mh;
                 item.ten_mon_hoc.Text = listDMH[i].ten_mh;
                 item.nhom_to.Text = listDMH[i].nhomto;
-                item.sotinchi.Text = listDMH[i].so_tc;
+                item.sotinchi.Text = listDMH[i].so_tin_chi;
                 item.diemthanhphan.Text = listDMH[i].diem_thanhphan;
                 item.diemthi.Text = listDMH[i].diem_thi;
                 item.diemtongket.Text = listDMH[i].diem_tong_ket;
@@ -109,9 +109,6 @@ namespace MyBK.Gui {
             if (op.FileName != "") {
                 KeyValuePair<String, BangDiem> item = (KeyValuePair<String, BangDiem>)comboBox_ds_hoc_ki.SelectedItem;
                 BangDiem.exportExcel(op.FileName, item.Value.hk_nh);
-            }
-            else {
-                MessageBox.Show("Tên file không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

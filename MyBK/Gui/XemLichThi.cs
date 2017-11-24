@@ -103,9 +103,6 @@ namespace MyBK.Gui {
                 KeyValuePair<String, LichThi> item = (KeyValuePair<String, LichThi>)comboBox_ds_hoc_ki.SelectedItem;
                 LichThi.exportExcel(op.FileName, item.Value.hk_nh);
             }
-            else {
-                MessageBox.Show("Tên file không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
     }
 }
