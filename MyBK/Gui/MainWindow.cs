@@ -138,6 +138,8 @@ namespace MyBK.Gui {
             try {
                 LoadData();
                 flowLayout_Body.Show();
+                button_refresh.Show();
+                button_logout.Show();
             } catch (Exception err) {
                 MessageBox.Show(err.Message, "Lỗi");
                 StreamWriter sw = new StreamWriter(MyBK.Lib.Data.PathData.config, false);
@@ -223,6 +225,8 @@ namespace MyBK.Gui {
                 lf.Margin = new Padding(50, 50, 50, 0);
                 tablePanel_all.Controls.Add(lf, 0, 1);
                 lf.buttonLoginClicked += LoadDataLoginSuccess;
+                button_logout.Hide();
+                button_refresh.Hide();
             }
         }
 
@@ -237,8 +241,12 @@ namespace MyBK.Gui {
         }
 
         private void button_refresh_Click(object sender, EventArgs e) {
-            LoadData();
-            
+            try {
+                LoadData();
+                MessageBox.Show("Cập nhật dữ liệu thành công!", "MyBK");
+            } catch (Exception err) {
+                MessageBox.Show(err.Message, "Lỗi");
+            }
         }
     }
 }
