@@ -78,8 +78,9 @@ namespace MyBK.Gui {
                 this.panel_chuong_trinh_dao_tao.Controls.Remove(ct);
 
             listCTDTHK = ctdt.dsCTDT.ToArray<CTDT_HK>();
+            
      
-            for (int i = listCTDTHK.Length - 1; i >= 0; i--) {
+            for (int i = 0; i < listCTDTHK.Length; i++) {
                 CTDTItem item = new CTDTItem();
                 item.stt.Text = (listCTDTHK.Length - i).ToString();
                 item.ma_mon_hoc.Text = listCTDTHK[i].ma_monhoc;
@@ -93,6 +94,7 @@ namespace MyBK.Gui {
                 
                 item.chua_dat.Text = "";
                 item.dat.Text = "";
+                
                 if (listCTDTHK[i].diem == null) {
                     item.chua_dat.Text = "x";
                 } else {
@@ -106,7 +108,7 @@ namespace MyBK.Gui {
                                 
                 item.diem.Text = listCTDTHK[i].diem;
                 item.ghi_chu.Text = "";
-                item.TabIndex = i;
+                item.TabIndex = listCTDTHK.Length - i + 1;
                 item.Dock = DockStyle.Top;
                 this.panel_chuong_trinh_dao_tao.Controls.Add(item);
             }

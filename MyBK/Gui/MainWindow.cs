@@ -236,8 +236,12 @@ namespace MyBK.Gui {
         }
 
         private void button_myBK_dkmh_Click(object sender, EventArgs e) {
-            XemmyBKDKMH myBK = new XemmyBKDKMH();
-            myBK.Show();
+            try {
+                XemmyBKDKMH myBK = new XemmyBKDKMH();
+                myBK.Show();
+            } catch (Exception err) {
+                MessageBox.Show(err.Message, "Lỗi");
+            }
         }
 
         private void button_refresh_Click(object sender, EventArgs e) {
